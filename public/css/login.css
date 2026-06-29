@@ -1,0 +1,497 @@
+/* ============================================
+   RESET & BASE
+   ============================================ */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* ============================================
+   CONTAINER
+   ============================================ */
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+/* ============================================
+   PANEL IZQUIERDO
+   ============================================ */
+
+.panel-brand {
+    flex: 1;
+    position: relative;
+    background-image: url('/img/farmacia.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.brand-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(4, 15, 60, 0.97) 0%,
+        rgba(10, 45, 120, 0.92) 45%,
+        rgba(0, 90, 180, 0.80) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 64px;
+}
+
+.brand-content {
+    max-width: 460px;
+    color: white;
+}
+
+/* Badge SGF superior */
+.brand-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #93C5FD;
+    margin-bottom: 28px;
+    backdrop-filter: blur(8px);
+    text-transform: uppercase;
+}
+
+/* Título */
+.brand-title {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: white;
+    margin-bottom: 16px;
+    letter-spacing: -0.8px;
+}
+
+.brand-title span {
+    color: #60A5FA;
+    display: block;
+}
+
+/* Línea decorativa bajo el título */
+.brand-title::after {
+    content: '';
+    display: block;
+    width: 52px;
+    height: 3px;
+    background: linear-gradient(90deg, #60A5FA, transparent);
+    border-radius: 2px;
+    margin-top: 18px;
+    margin-bottom: 0;
+}
+
+/* Subtítulo */
+.brand-sub {
+    font-size: 14.5px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.75;
+    margin-top: 20px;
+    margin-bottom: 48px;
+    font-weight: 300;
+    max-width: 380px;
+}
+
+/* Features */
+.brand-features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.brand-feature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 14px;
+    backdrop-filter: blur(6px);
+    transition: background 0.25s;
+}
+
+.brand-feature:hover {
+    background: rgba(255, 255, 255, 0.09);
+}
+
+.feat-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    background: rgba(96, 165, 250, 0.15);
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feat-icon svg {
+    width: 19px;
+    height: 19px;
+    color: #93C5FD;
+}
+
+.feat-text strong {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 2px;
+}
+
+.feat-text p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.50);
+    font-weight: 300;
+}
+
+/* ============================================
+   PANEL DERECHO
+   ============================================ */
+
+.panel-login {
+    width: 520px;
+    min-width: 520px;
+    background: #F0F5FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    box-shadow: -16px 0 60px rgba(4, 15, 60, 0.20);
+}
+
+/* Tarjeta */
+.form-card {
+    width: 430px;
+    background: white;
+    border-radius: 24px;
+    padding: 42px 40px 36px;
+    box-shadow:
+        0 20px 60px rgba(10, 45, 120, 0.10),
+        0 4px 20px rgba(0, 0, 0, 0.04),
+        0 0 0 1px rgba(37, 99, 235, 0.07);
+}
+
+/* ---- Cabecera con logo ---- */
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Logo como estampa, sin caja, tamaño natural */
+.form-logo-stamp {
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-logo-img {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+}
+
+.form-header h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+    letter-spacing: -0.4px;
+}
+
+.form-header p {
+    font-size: 13.5px;
+    color: #6B7FA3;
+    line-height: 1.6;
+    padding: 0 8px;
+}
+
+/* ---- Campos ---- */
+
+.field-group {
+    margin-bottom: 18px;
+}
+
+.label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.label-row label {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #1F2D4A;
+}
+
+.field-group > label {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #1F2D4A;
+    margin-bottom: 8px;
+}
+
+.input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.i-icon {
+    position: absolute;
+    left: 14px;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    color: #A0B0CC;
+    transition: color 0.2s;
+}
+
+.i-icon svg {
+    width: 17px;
+    height: 17px;
+}
+
+.input-wrap input[type="text"],
+.input-wrap input[type="password"] {
+    width: 100%;
+    height: 50px;
+    border: 1.5px solid #D8E4F5;
+    border-radius: 11px;
+    padding: 0 46px 0 44px;
+    font-size: 14px;
+    color: #111827;
+    background: #F8FAFF;
+    outline: none;
+    transition: all 0.22s ease;
+}
+
+.input-wrap input::placeholder {
+    color: #B8C8DF;
+    font-weight: 400;
+}
+
+.input-wrap input:focus {
+    border-color: #2563EB;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+.input-wrap:focus-within .i-icon {
+    color: #2563EB;
+}
+
+/* Ojito */
+.toggle-eye {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: #A0B0CC;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+    width: auto;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: none;
+}
+
+.toggle-eye svg {
+    width: 17px;
+    height: 17px;
+}
+
+.toggle-eye:hover {
+    color: #2563EB;
+    transform: none;
+}
+
+/* ---- Olvidaste contraseña ---- */
+
+.link-forgot {
+    font-size: 12.5px;
+    color: #2563EB;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.link-forgot:hover {
+    color: #1340B8;
+    text-decoration: underline;
+}
+
+/* ---- Recordarme ---- */
+
+.row-meta {
+    display: flex;
+    align-items: center;
+    margin: 18px 0 24px;
+}
+
+.check-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    color: #4A5A7A;
+    cursor: pointer;
+    user-select: none;
+}
+
+.check-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #2563EB;
+    cursor: pointer;
+}
+
+/* ---- Botón ---- */
+
+.btn-login {
+    width: 100%;
+    height: 52px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2563EB 0%, #1340B8 100%);
+    color: white;
+    font-size: 15.5px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.28s ease;
+    box-shadow:
+        0 6px 20px rgba(37, 99, 235, 0.36),
+        0 2px 6px rgba(19, 64, 184, 0.18);
+    letter-spacing: 0.2px;
+}
+
+.btn-login svg {
+    width: 17px;
+    height: 17px;
+    transition: transform 0.28s;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 12px 28px rgba(37, 99, 235, 0.44),
+        0 4px 10px rgba(19, 64, 184, 0.22);
+    background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+}
+
+.btn-login:hover svg {
+    transform: translateX(5px);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 12px rgba(37, 99, 235, 0.32);
+}
+
+/* ---- Footer ---- */
+
+.form-footer {
+    margin-top: 28px;
+    text-align: center;
+    border-top: 1px solid #EDF2FB;
+    padding-top: 20px;
+}
+
+.form-footer p {
+    font-size: 11.5px;
+    color: #A0B0CC;
+    letter-spacing: 0.3px;
+}
+/*================ MENSAJES =================*/
+
+.mensaje{
+
+    margin-top:20px;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.oculto{
+
+    display:none;
+
+}
+
+.error{
+
+    background:#FEECEC;
+
+    color:#B91C1C;
+
+    border-left:5px solid #DC2626;
+
+}
+
+.correcto{
+
+    background:#ECFDF3;
+
+    color:#166534;
+
+    border-left:5px solid #22C55E;
+
+}
+
+.cargando{
+
+    background:#EFF6FF;
+
+    color:#2563EB;
+
+    border-left:5px solid #2563EB;
+
+}
