@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Medicamentos · Sistema de Gestión Farmacéutica</title>
+
+<link rel="stylesheet" href="/css/dashboard.css">
+<link rel="stylesheet" href="/css/medicamentos.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<div class="layout">
+
+
+
+
+<aside class="sidebar">
+
+
+<div class="logo">
+
+<div class="logo-icon">+</div>
+
+<div>
+<h2>SGF</h2>
+<p>Sistema de Gestión<br>Farmacéutica</p>
+</div>
+
+</div>
+
+
+
+<ul>
+
+<li>⌂ Inicio</li>
+
+
+<h4>MÓDULO PRINCIPAL</h4>
+
+
+<li class="active">
+    <i class="fa-solid fa-capsules"></i>
+    Medicamentos
+</li>
+
+
+<li class="sub">
+    Registrar medicamento
+</li>
+
+<li class="sub">
+    Lista de medicamentos
+</li>
+
+<li class="sub">
+    Categorías
+</li>
+
+
+
+<li>
+    <i class="fa-solid fa-box"></i>
+    Inventario
+</li>
+
+
+
+<li>
+    <i class="fa-solid fa-users"></i>
+    Usuarios
+</li>
+
+
+
+<li>
+    <i class="fa-solid fa-chart-column"></i>
+    Reportes
+</li>
+
+
+
+<h4>CONFIGURACIÓN</h4>
+
+
+<li>
+    <i class="fa-solid fa-gear"></i>
+    Configuración
+</li>
+
+
+</ul>
+
+
+<div class="logout">
+
+🚪 Cerrar sesión
+
+</div>
+
+
+</aside>
+
+
+
+
+
+<!-- CONTENIDO -->
+
+
+<section class="content">
+
+
+
+<header class="topbar">
+
+
+<div class="top-left">
+
+
+<i class="fa-solid fa-bars menu-icon"></i>
+
+
+<h3>Medicamentos</h3>
+
+
+</div>
+
+
+
+
+<div class="top-user">
+
+
+<div class="notification">
+
+<i class="fa-regular fa-bell"></i>
+
+<span>3</span>
+
+</div>
+
+
+
+
+<div class="avatar">
+
+<i class="fa-solid fa-user"></i>
+
+</div>
+
+
+
+<div class="user-text">
+
+
+<b>Elvis Yohan</b>
+
+<small>Administrador</small>
+
+
+</div>
+
+
+
+<i class="fa-solid fa-chevron-down arrow"></i>
+
+
+</div>
+
+
+
+</header>
+
+
+
+
+
+<div class="welcome">
+
+<div>
+
+<h1>Gestionar Medicamentos</h1>
+
+<p>
+Registra, edita y controla el inventario de medicamentos de tu farmacia.
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="box form-box">
+
+<form id="formMedicamento" class="form-grid" autocomplete="off">
+
+    <input type="hidden" id="idMedicamento" name="idMedicamento">
+
+    <div class="field">
+        <label for="codigo">Código</label>
+        <input type="text" id="codigo" name="codigo" placeholder="MED013">
+    </div>
+
+    <div class="field">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Paracetamol 500mg">
+    </div>
+
+    <div class="field">
+        <label for="idCategoria">Categoría</label>
+        <select id="idCategoria" name="idCategoria">
+            <option value="" selected disabled>Seleccione...</option>
+            <option value="1">Analgésicos</option>
+            <option value="2">Antibióticos</option>
+            <option value="3">Vitaminas</option>
+            <option value="4">Jarabes</option>
+            <option value="5">Inyectables</option>
+            <option value="6">Antiinflamatorios</option>
+            <option value="7">Antigripales</option>
+            <option value="8">Gastrointestinales</option>
+            <option value="9">Dermatológicos</option>
+            <option value="10">Antialérgicos</option>
+            <option value="11">Cardiovasculares</option>
+            <option value="12">Oftálmicos</option>
+        </select>
+    </div>
+
+    <div class="field">
+        <label for="laboratorio">Laboratorio</label>
+        <input type="text" id="laboratorio" name="laboratorio" placeholder="Laboratorios Portugal">
+    </div>
+
+    <div class="field">
+        <label for="presentacion">Presentación</label>
+        <input type="text" id="presentacion" name="presentacion" placeholder="Caja x 100">
+    </div>
+
+    <div class="field">
+        <label for="concentracion">Concentración</label>
+        <input type="text" id="concentracion" name="concentracion" placeholder="500 mg">
+    </div>
+
+    <div class="field">
+        <label for="precioCompra">Precio compra (S/)</label>
+        <input type="number" id="precioCompra" name="precioCompra" step="0.01" min="0" placeholder="0.00">
+    </div>
+
+    <div class="field">
+        <label for="precioVenta">Precio venta (S/)</label>
+        <input type="number" id="precioVenta" name="precioVenta" step="0.01" min="0" placeholder="0.00">
+    </div>
+
+    <div class="field">
+        <label for="stock">Stock actual</label>
+        <input type="number" id="stock" name="stock" min="0" placeholder="0">
+    </div>
+
+    <div class="field">
+        <label for="stockMinimo">Stock mínimo</label>
+        <input type="number" id="stockMinimo" name="stockMinimo" min="0" placeholder="0">
+    </div>
+
+    <div class="field">
+        <label for="fechaVencimiento">Fecha de vencimiento</label>
+        <input type="date" id="fechaVencimiento" name="fechaVencimiento">
+    </div>
+
+    <div class="field">
+        <label for="estado">Estado</label>
+        <select id="estado" name="estado">
+            <option value="1" selected>Activo</option>
+            <option value="0">Inactivo</option>
+        </select>
+    </div>
+
+</form>
+
+
+<div class="form-actions">
+
+    <button type="submit" form="formMedicamento" class="fbtn fbtn-green">
+        <i class="fa-solid fa-floppy-disk"></i> Guardar
+    </button>
+
+    <button type="button" id="btnNuevo" class="fbtn fbtn-blue">
+        <i class="fa-solid fa-plus"></i> Nuevo
+    </button>
+
+    <button type="button" id="btnEditar" class="fbtn fbtn-orange">
+        <i class="fa-solid fa-pen"></i> Editar
+    </button>
+
+    <button type="button" id="btnEliminar" class="fbtn fbtn-red">
+        <i class="fa-solid fa-trash"></i> Eliminar
+    </button>
+
+    <button type="button" id="btnActualizar" class="fbtn fbtn-gray">
+        <i class="fa-solid fa-rotate"></i> Actualizar
+    </button>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="box table-box">
+
+<div class="table-box-header">
+
+    <h2>Listado de Medicamentos</h2>
+
+    <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="buscarMedicamento" placeholder="Buscar medicamento...">
+    </div>
+
+</div>
+
+
+<div class="table-scroll">
+
+<table class="med-table">
+
+<thead>
+<tr>
+    <th>Código</th>
+    <th>Nombre</th>
+    <th>Categoría</th>
+    <th>Laboratorio</th>
+    <th>Presentación</th>
+    <th>Precio venta (S/)</th>
+    <th>Stock</th>
+    <th>Stock mínimo</th>
+    <th>Vencimiento</th>
+    <th>Estado</th>
+    <th>Acciones</th>
+</tr>
+</thead>
+
+<tbody id="tablaMedicamentosBody">
+
+
+
+<tr data-id="2">
+    <td>MED002</td>
+    <td>Amoxicilina 500mg</td>
+    <td>Antibióticos</td>
+    <td>Laboratorios Portugal</td>
+    <td>Caja x 50</td>
+    <td>120.00</td>
+    <td>800</td>
+    <td>150</td>
+    <td>20/05/2026</td>
+    <td><span class="badge badge-ok">Activo</span></td>
+    <td>
+        <div class="row-actions">
+            <button class="icon-btn icon-edit" title="Editar"><i class="fa-solid fa-pen"></i></button>
+            <button class="icon-btn icon-delete" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
+        </div>
+    </td>
+</tr>
+
+<tr data-id="4">
+    <td>MED004</td>
+    <td>Loratadina 10mg</td>
+    <td>Antialérgicos</td>
+    <td>Laboratorios Farmindustria</td>
+    <td>Caja x 20</td>
+    <td>42.00</td>
+    <td>10</td>
+    <td>100</td>
+    <td>05/08/2026</td>
+    <td><span class="badge badge-low">Stock bajo</span></td>
+    <td>
+        <div class="row-actions">
+            <button class="icon-btn icon-edit" title="Editar"><i class="fa-solid fa-pen"></i></button>
+            <button class="icon-btn icon-delete" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
+        </div>
+    </td>
+</tr>
+
+<tr data-id="5">
+    <td>MED005</td>
+    <td>Omeprazol 20mg</td>
+    <td>Gastrointestinales</td>
+    <td>Laboratorios Hersil</td>
+    <td>Caja x 30</td>
+    <td>90.00</td>
+    <td>600</td>
+    <td>100</td>
+    <td>22/09/2028</td>
+    <td><span class="badge badge-ok">Activo</span></td>
+    <td>
+        <div class="row-actions">
+            <button class="icon-btn icon-edit" title="Editar"><i class="fa-solid fa-pen"></i></button>
+            <button class="icon-btn icon-delete" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
+        </div>
+    </td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+
+<footer>
+
+© 2026 Sistema de Gestión Farmacéutica
+
+</footer>
+
+
+
+
+</section>
+
+
+</div>
+
+
+</body>
+
+</html>
