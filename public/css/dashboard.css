@@ -423,10 +423,9 @@ header{
 .card{
 
     background:white;
-
     height:140px;
 
-    padding:20px;
+    padding:22px;
 
     border-radius:18px;
 
@@ -434,25 +433,36 @@ header{
 
     position:relative;
 
+    overflow:hidden;
+
 }
 
 
 
 .card h4{
 
-    margin:0 0 20px;
+    margin:0 0 14px;
 
     color:#64748b;
 
-}
+    font-size:15px;
 
+    padding-right:75px;
+
+    line-height:20px;
+
+}
 
 
 .card h2{
 
     margin:0;
 
-    font-size:26px;
+    font-size:22px;
+
+    font-weight:700;
+
+    padding-right:75px;
 
 }
 
@@ -509,16 +519,15 @@ header{
 
 /* ICONOS */
 
-
 .icon{
 
     position:absolute;
 
-    right:20px;
-    top:20px;
+    top:16px;
+    right:16px;
 
-    width:55px;
-    height:55px;
+    width:46px;
+    height:46px;
 
     border-radius:50%;
 
@@ -526,7 +535,9 @@ header{
     justify-content:center;
     align-items:center;
 
-    font-size:25px;
+    font-size:20px;
+
+    opacity:.90;
 
 }
 
@@ -582,15 +593,10 @@ header{
 
 
 .sections{
-
-    display:grid;
-
-    grid-template-columns:330px 1fr;
-
+    display:flex;
     gap:20px;
-
+    align-items:stretch;   /* ← Fuerza a que ambos tengan la misma altura */
     margin-top:25px;
-
 }
 
 
@@ -613,14 +619,12 @@ header{
 /* botones */
 
 
-.sections .box:first-child{
-
+.acciones{
+    flex: 0 0 330px;        /* ← Ancho fijo de 330px (como antes) */
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:15px;
-
+    align-content:start;    /* Los botones se alinean arriba */
 }
 
 
@@ -1225,10 +1229,11 @@ footer{
 
 
 .movimientos{
-
-    height:310px;
+    flex: 1;                 /* Ocupa todo el espacio disponible horizontal y vertical */
+    display:flex;
+    flex-direction:column;
     overflow:hidden;
-
+    min-height: 0;           /* Permite que se encoja si es necesario */
 }
 
 
@@ -1829,4 +1834,33 @@ footer{
 
     padding-top:90px;
 
+}
+/* ============================================
+   SCROLL PARA TABLA DE MOVIMIENTOS
+   ============================================ */
+r {
+    max-height: 300px;           /* Altura máxima antes de mostrar scroll */
+    overflow-y: auto;            /* Scroll vertical */
+    overflow-x: auto;            /* Scroll horizontal por si la tabla es muy ancha */
+    border-radius: 12px;
+}
+
+/* Personalizar la barra de scroll (opcional) */
+.mov-table-wrapper::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.mov-table-wrapper::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+.mov-table-wrapper::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 10px;
+}
+
+.mov-table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
 }

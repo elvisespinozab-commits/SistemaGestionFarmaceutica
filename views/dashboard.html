@@ -3,1040 +3,290 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sistema de Gestión Farmacéutica</title>
+    <title>Sistema de Gestión Farmacéutica</title>
 
-<link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
 
-<link rel="stylesheet" 
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
-
 
 <body>
 
 
-<div class="layout">
+    <div class="layout">
 
 
-<!-- MENU LATERAL -->
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
 
-<aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">+</div>
+                <div>
+                    <h2>SGF</h2>
+                    <p>Sistema de Gestión<br>Farmacéutica</p>
+                </div>
+            </div>
+
+            <ul>
+                <li class="active">⌂ Inicio</li>
+
+                <h4>MÓDULO PRINCIPAL</h4>
+
+                <li>
+                    <i class="fa-solid fa-capsules"></i>
+                    Medicamentos
+                </li>
+                <li class="sub">Registrar medicamento</li>
+                <li class="sub">Lista de medicamentos</li>
+                <li class="sub">Categorías</li>
+
+                <li>
+                    <i class="fa-solid fa-box"></i>
+                    Inventario
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-users"></i>
+                    Usuarios
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-chart-column"></i>
+                    Reportes
+                </li>
+
+                <h4>CONFIGURACIÓN</h4>
+
+                <li>
+                    <i class="fa-solid fa-gear"></i>
+                    Configuración
+                </li>
+            </ul>
+
+            <div class="logout">
+                🚪 Cerrar sesión
+            </div>
+
+        </aside>
 
 
-<div class="logo">
+        <!-- CONTENIDO -->
+        <section class="content">
 
-<div class="logo-icon">+</div>
+            <!-- TOPBAR -->
+            <header class="topbar">
 
-<div>
-<h2>SGF</h2>
-<p>Sistema de Gestión<br>Farmacéutica</p>
+                <div class="top-left">
+                    <i class="fa-solid fa-bars menu-icon"></i>
+                    <h3>Inicio</h3>
+                </div>
+
+                <div class="top-user">
+                    <div class="notification">
+                        <i class="fa-regular fa-bell"></i>
+                        <span>3</span>
+                    </div>
+
+                    <div class="avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <div class="user-text">
+                        <b id="userNombre">Elvis Yohan</b>
+                        <small id="userRol">Administrador</small>
+                    </div>
+
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                </div>
+
+            </header>
+
+
+            <!-- BIENVENIDA -->
+            <div class="welcome">
+
+                <div>
+                    <h1>Bienvenido, <span id="userNombreSaludo">Elvis Yohan</span> 👋</h1>
+                    <p>Aquí tienes un resumen general de tu farmacia. Revisa el estado del inventario y movimientos recientes.</p>
+                </div>
+
+                <div class="date-box">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <div>
+                        <b id="fechaHoy">Miércoles, 21 Mayo 2026</b>
+                        <p>Última actualización: <span id="horaActualizacion">10:45 AM</span></p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- TARJETAS DE RESUMEN -->
+            <div class="cards">
+
+                <div class="card blue">
+                    <div class="icon"><i class="fa-solid fa-capsules"></i></div>
+                    <h4>Total medicamentos</h4>
+                    <h2 id="cardTotalMedicamentos">0</h2>
+                    <p>Activos en inventario</p>
+                </div>
+
+                <div class="card green">
+                    <div class="icon"><i class="fa-solid fa-arrow-down"></i></div>
+                    <h4>Entradas (mes)</h4>
+                    <h2 id="cardEntradasMes">0</h2>
+                    <p id="cardEntradasValor">S/ 0.00</p>
+                </div>
+
+                <div class="card orange">
+                    <div class="icon"><i class="fa-solid fa-arrow-up"></i></div>
+                    <h4>Salidas (mes)</h4>
+                    <h2 id="cardSalidasMes">0</h2>
+                    <p id="cardSalidasValor">S/ 0.00</p>
+                </div>
+
+                <div class="card purple">
+                    <div class="icon"><i class="fa-solid fa-dollar-sign"></i></div>
+                    <h4>Valor del inventario</h4>
+                    <h2 id="cardValorInventario">S/ 0.00</h2>
+                    <p>Total actual</p>
+                </div>
+
+                <div class="card cyan">
+                    <div class="icon"><i class="fa-solid fa-users"></i></div>
+                    <h4>Usuarios activos</h4>
+                    <h2 id="cardUsuariosActivos">0</h2>
+                    <p>En el sistema</p>
+                </div>
+
+            </div>
+
+
+            <!-- SECCIONES ACCIONES + MOVIMIENTOS -->
+            <div class="sections">
+
+                <!-- ACCIONES RÁPIDAS -->
+                <div class="box acciones">
+                    <h2>Acciones rápidas</h2>
+
+                    <button class="btn blue-btn">
+                        <i class="fa-solid fa-capsules"></i>
+                        <span>Registrar<br>Medicamento</span>
+                    </button>
+
+                    <button class="btn green-btn">
+                        <i class="fa-solid fa-arrow-down"></i>
+                        <span>Entrada<br>Medicamentos</span>
+                    </button>
+
+                    <button class="btn orange-btn">
+                        <i class="fa-solid fa-arrow-up"></i>
+                        <span>Salida<br>Medicamentos</span>
+                    </button>
+
+                    <button class="btn purple-btn">
+                        <i class="fa-solid fa-box"></i>
+                        <span>Ver Inventario<br>Completo</span>
+                    </button>
+                </div>
+
+
+                <!-- MOVIMIENTOS RECIENTES -->
+                <div class="box movimientos">
+
+                    <div class="mov-title">
+                        <h2>Movimientos recientes</h2>
+                        <a>Ver todos los movimientos →</a>
+                    </div>
+<div class="mov-table-wrapper">
+    <table class="mov-table">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+                <th>Referencia</th>
+                <th>Cantidad</th>
+                <th>Valor (S/)</th>
+                <th>Usuario</th>
+            </tr>
+        </thead>
+        <tbody id="movimientosBody">
+            <!-- Se llena con JavaScript -->
+        </tbody>
+    </table>
 </div>
+                </div>
 
-</div>
+            </div>
 
 
+            <!-- SECCIÓN INFERIOR: GRÁFICO + STOCK BAJO -->
+            <div class="bottom">
 
-<ul>
+                <!-- GRÁFICO MENSUAL -->
+                <div class="box chart">
 
-<li class="active">⌂ Inicio</li>
+                    <h2>Entradas y salidas <span>(Resumen mensual)</span></h2>
 
+                    <div class="legend">
+                        <div><span class="green-box"></span> Entradas (S/)</div>
+                        <div><span class="orange-box"></span> Salidas (S/)</div>
+                    </div>
 
-<h4>MÓDULO PRINCIPAL</h4>
+                    <div class="graph" id="graficoMensual">
+                        <!-- Se llena con JavaScript -->
+                    </div>
 
+                </div>
 
-<li>
-    <i class="fa-solid fa-capsules"></i>
-    Medicamentos
-</li>
 
+                <!-- STOCK BAJO -->
+                <div class="box stock">
 
-<li class="sub">
-    Registrar medicamento
-</li>
+                    <div class="stock-title">
+                        <h2>Medicamentos con stock bajo <span id="stockBajoCount">0</span></h2>
+                        <a>Ver todos →</a>
+                    </div>
 
-<li class="sub">
-    Lista de medicamentos
-</li>
+                    <table class="stock-table">
+                        <thead>
+                            <tr>
+                                <th>Medicamento</th>
+                                <th>Stock actual</th>
+                                <th>Stock mínimo</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="stockBajoBody">
+                            <!-- Se llena con JavaScript -->
+                        </tbody>
+                    </table>
 
-<li class="sub">
-    Categorías
-</li>
+                    <div class="stock-footer">Ver todos los medicamentos →</div>
 
+                </div>
 
+            </div>
 
-<li>
-    <i class="fa-solid fa-box"></i>
-    Inventario
-</li>
 
+            <!-- FOOTER -->
+            <footer>
+                © 2026 Sistema de Gestión Farmacéutica
+            </footer>
 
+        </section>
 
-<li>
-    <i class="fa-solid fa-users"></i>
-    Usuarios
-</li>
+    </div>
 
 
-
-<li>
-    <i class="fa-solid fa-chart-column"></i>
-    Reportes
-</li>
-
-
-
-<h4>CONFIGURACIÓN</h4>
-
-
-<li>
-    <i class="fa-solid fa-gear"></i>
-    Configuración
-</li>
-
-
-</ul>
-
-
-<div class="logout">
-
-🚪 Cerrar sesión
-
-</div>
-
-
-</aside>
-
-
-
-
-
-<!-- CONTENIDO -->
-
-
-<section class="content">
-
-
-
-<header class="topbar">
-
-
-<div class="top-left">
-
-
-<i class="fa-solid fa-bars menu-icon"></i>
-
-
-<h3>Inicio</h3>
-
-
-</div>
-
-
-
-
-<div class="top-user">
-
-
-<div class="notification">
-
-<i class="fa-regular fa-bell"></i>
-
-<span>3</span>
-
-</div>
-
-
-
-
-<div class="avatar">
-
-<i class="fa-solid fa-user"></i>
-
-</div>
-
-
-
-<div class="user-text">
-
-
-<b>Elvis Yohan</b>
-
-<small>Administrador</small>
-
-
-</div>
-
-
-
-<i class="fa-solid fa-chevron-down arrow"></i>
-
-
-</div>
-
-
-
-</header>
-
-
-
-
-
-
-<div class="welcome">
-
-
-<div>
-
-<h1>
-Bienvenido, Elvis Yohan 👋
-</h1>
-
-
-<p>
-Aquí tienes un resumen general de tu farmacia.
-Revisa el estado del inventario y movimientos recientes.
-</p>
-
-
-</div>
-
-
-
-<div class="date-box">
-
-
-<i class="fa-solid fa-calendar-days"></i>
-
-
-<div>
-
-<b>Miércoles, 21 Mayo 2026</b>
-
-<p>
-Última actualización: 10:45 AM
-</p>
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<!-- TARJETAS CORREGIDAS -->
-
-
-<div class="cards">
-
-
-
-<div class="card blue">
-
-
-<div class="icon">
-<i class="fa-solid fa-capsules"></i>
-</div>
-
-
-<h4>Total medicamentos</h4>
-
-<h2>256</h2>
-
-<p>Activos en inventario</p>
-
-
-</div>
-
-
-
-
-
-<div class="card green">
-
-
-<div class="icon">
-<i class="fa-solid fa-arrow-down"></i>
-</div>
-
-
-<h4>Entradas (mes)</h4>
-
-<h2>128</h2>
-
-<p>S/ 12,450.00</p>
-
-
-</div>
-
-
-
-
-
-<div class="card orange">
-
-
-<div class="icon">
-<i class="fa-solid fa-arrow-up"></i>
-</div>
-
-
-<h4>Salidas (mes)</h4>
-
-<h2>214</h2>
-
-<p>S/ 18,780.50</p>
-
-
-</div>
-
-
-
-
-
-
-<div class="card purple">
-
-
-<div class="icon">
-<i class="fa-solid fa-dollar-sign"></i>
-</div>
-
-
-<h4>Valor del inventario</h4>
-
-<h2>S/ 45,230.50</h2>
-
-<p>Total actual</p>
-
-
-</div>
-
-
-
-
-
-
-<div class="card cyan">
-
-
-<div class="icon">
-<i class="fa-solid fa-users"></i>
-</div>
-
-
-<h4>Usuarios activos</h4>
-
-<h2>5</h2>
-
-<p>En el sistema</p>
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="sections">
-
-
-
-<div class="box acciones">
-
-<h2>Acciones rápidas</h2>
-
-
-<button class="btn blue-btn">
-
-<i class="fa-solid fa-capsules"></i>
-
-<span>
-Registrar<br>
-Medicamento
-</span>
-
-</button>
-
-
-
-<button class="btn green-btn">
-
-<i class="fa-solid fa-arrow-down"></i>
-
-<span>
-Entrada<br>
-Medicamentos
-</span>
-
-</button>
-
-
-
-
-<button class="btn orange-btn">
-
-<i class="fa-solid fa-arrow-up"></i>
-
-<span>
-Salida<br>
-Medicamentos
-</span>
-
-</button>
-
-
-
-
-
-<button class="btn purple-btn">
-
-<i class="fa-solid fa-box"></i>
-
-<span>
-Ver Inventario<br>
-Completo
-</span>
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="box movimientos">
-
-
-<div class="mov-title">
-
-<h2>Movimientos recientes</h2>
-
-<a>
-Ver todos los movimientos →
-</a>
-
-
-</div>
-
-
-
-
-<table class="mov-table">
-
-
-<thead>
-
-<tr>
-
-<th>Fecha</th>
-<th>Tipo</th>
-<th>Descripción</th>
-<th>Referencia</th>
-<th>Cantidad</th>
-<th>Valor (S/)</th>
-<th>Usuario</th>
-
-
-</tr>
-
-</thead>
-
-
-
-<tbody>
-
-
-<tr>
-
-<td>21/05/2026 10:45</td>
-
-<td>
-<span class="entrada">
-ENTRADA
-</span>
-</td>
-
-
-<td>
-Paracetamol 500mg
-</td>
-
-
-<td>
-FAC-001245
-</td>
-
-
-<td>
-100
-</td>
-
-
-<td>
-150.00
-</td>
-
-
-<td>
-Elvis Yohan
-</td>
-
-
-</tr>
-
-
-
-
-<tr>
-
-
-<td>
-21/05/2026 10:20
-</td>
-
-
-<td>
-
-<span class="salida">
-SALIDA
-</span>
-
-</td>
-
-
-<td>
-Amoxicilina 500mg
-</td>
-
-
-<td>
-VEN-001874
-</td>
-
-
-<td>
-20
-</td>
-
-
-<td>
-60.00
-</td>
-
-
-<td>
-María González
-</td>
-
-
-</tr>
-
-
-
-
-<tr>
-
-
-<td>
-21/05/2026 09:58
-</td>
-
-
-<td>
-
-<span class="entrada">
-ENTRADA
-</span>
-
-</td>
-
-
-<td>
-Ibuprofeno 400mg
-</td>
-
-
-<td>
-FAC-001244
-</td>
-
-
-<td>
-50
-</td>
-
-
-<td>
-75.00
-</td>
-
-
-<td>
-Elvis Yohan
-</td>
-
-
-</tr>
-
-
-
-
-<tr>
-
-
-<td>
-21/05/2026 09:30
-</td>
-
-
-<td>
-
-<span class="salida">
-SALIDA
-</span>
-
-</td>
-
-
-<td>
-Loratadina 10mg
-</td>
-
-
-<td>
-VEN-001873
-</td>
-
-
-<td>
-10
-</td>
-
-
-<td>
-15.00
-</td>
-
-
-<td>
-Carlos Rodriguez
-</td>
-
-
-</tr>
-
-
-
-
-<tr>
-
-
-<td>
-21/05/2026 09:15
-</td>
-
-
-<td>
-
-<span class="entrada">
-ENTRADA
-</span>
-
-</td>
-
-
-<td>
-Omeprazol 20mg
-</td>
-
-
-<td>
-FAC-001243
-</td>
-
-
-<td>
-30
-</td>
-
-
-<td>
-90.00
-</td>
-
-
-<td>
-Elvis Yohan
-</td>
-
-
-</tr>
-
-
-
-</tbody>
-
-
-</table>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="bottom">
-
-
-
-<div class="box chart">
-
-<h2>
-Entradas y salidas
-<span>(Resumen mensual)</span>
-</h2>
-
-
-<div class="legend">
-
-<div>
-<span class="green-box"></span>
-Entradas (S/)
-</div>
-
-
-<div>
-<span class="orange-box"></span>
-Salidas (S/)
-</div>
-
-</div>
-
-
-
-<div class="graph">
-
-
-<div class="month">
-
-<div class="bars">
-
-<div class="chart-bar chart-entry" style="height:80px"></div>
-
-<div class="chart-bar chart-output" style="height:100px"></div>
-
-</div>
-
-<p>Ene</p>
-
-</div>
-
-
-
-
-<div class="month">
-
-<div class="bars">
-
-<div class="chart-bar chart-entry" style="height:100px"></div>
-<div class="chart-bar chart-output" style="height:130px"></div>
-
-</div>
-
-<p>Feb</p>
-
-</div>
-
-
-
-
-
-<div class="month">
-
-<div class="bars">
-
-<div class="chart-bar chart-entry" style="height:120px"></div>
-<div class="chart-bar chart-output" style="height:160px"></div>
-
-</div>
-
-<p>Mar</p>
-
-</div>
-
-
-
-
-
-<div class="month">
-
-<div class="bars">
-
-<div class="chart-bar chart-entry" style="height:150px"></div>
-<div class="chart-bar chart-output" style="height:190px"></div>
-
-</div>
-
-<p>Abr</p>
-
-</div>
-
-
-
-
-
-<div class="month">
-
-<div class="bars">
-
-<div class="chart-bar chart-entry" style="height:110px"></div>
-<div class="chart-bar chart-output" style="height:170px"></div>
-
-</div>
-
-<p>May</p>
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="box stock">
-
-
-<div class="stock-title">
-
-<h2>
-Medicamentos con stock bajo 
-<span>6</span>
-</h2>
-
-<a>Ver todos →</a>
-
-</div>
-
-
-
-<table class="stock-table">
-
-
-<thead>
-
-<tr>
-
-<th>Medicamento</th>
-<th>Stock actual</th>
-<th>Stock mínimo</th>
-<th>Estado</th>
-
-</tr>
-
-</thead>
-
-
-
-<tbody>
-
-
-<tr>
-
-<td>Paracetamol 500mg</td>
-
-<td class="danger-number">
-12
-</td>
-
-<td>
-50
-</td>
-
-<td>
-<span class="status">
-Bajo
-</span>
-</td>
-
-</tr>
-
-
-
-
-<tr>
-
-<td>Amoxicilina 500mg</td>
-
-<td class="danger-number">
-8
-</td>
-
-<td>
-40
-</td>
-
-<td>
-<span class="status">
-Bajo
-</span>
-</td>
-
-</tr>
-
-
-
-
-
-<tr>
-
-<td>Ibuprofeno 400mg</td>
-
-<td class="danger-number">
-15
-</td>
-
-<td>
-30
-</td>
-
-<td>
-<span class="status">
-Bajo
-</span>
-</td>
-
-</tr>
-
-
-
-
-
-<tr>
-
-<td>Loratadina 10mg</td>
-
-<td class="danger-number">
-10
-</td>
-
-<td>
-25
-</td>
-
-<td>
-<span class="status">
-Bajo
-</span>
-</td>
-
-</tr>
-
-
-
-
-
-<tr>
-
-<td>Omeprazol 20mg</td>
-
-<td class="danger-number">
-18
-</td>
-
-<td>
-30
-</td>
-
-<td>
-<span class="status">
-Bajo
-</span>
-</td>
-
-</tr>
-
-
-
-</tbody>
-
-
-</table>
-
-
-
-<div class="stock-footer">
-
-Ver todos los medicamentos →
-
-</div>
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-<footer>
-
-© 2026 Sistema de Gestión Farmacéutica
-
-</footer>
-
-
-
-
-</section>
-
-
-</div>
-
-
+    <!-- Archivo JavaScript del dashboard -->
+    <script src="/js/dashboard.js"></script>
 
 </body>
 
