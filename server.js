@@ -5,6 +5,7 @@ const { conectar } = require("./config/db");
 
 // Importar rutas
 const loginRoutes = require("./routes/loginRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.get("/", (req, res) => {
 
 // Rutas del sistema
 app.use("/", loginRoutes);
+app.use("/", dashboardRoutes);
 
 app.get("/dashboard",(req,res)=>{
 

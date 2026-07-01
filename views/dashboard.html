@@ -10,6 +10,9 @@
 
 <link rel="stylesheet" href="/css/dashboard.css">
 
+<link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 
@@ -45,27 +48,54 @@
 <h4>MÓDULO PRINCIPAL</h4>
 
 
-<li>💊 Medicamentos</li>
-
-<li class="sub">Registrar medicamento</li>
-
-<li class="sub">Lista de medicamentos</li>
-
-<li class="sub">Categorías</li>
+<li>
+    <i class="fa-solid fa-capsules"></i>
+    Medicamentos
+</li>
 
 
-<li>📦 Inventario</li>
+<li class="sub">
+    Registrar medicamento
+</li>
 
-<li>👥 Usuarios</li>
+<li class="sub">
+    Lista de medicamentos
+</li>
 
-<li>📊 Reportes</li>
+<li class="sub">
+    Categorías
+</li>
+
+
+
+<li>
+    <i class="fa-solid fa-box"></i>
+    Inventario
+</li>
+
+
+
+<li>
+    <i class="fa-solid fa-users"></i>
+    Usuarios
+</li>
+
+
+
+<li>
+    <i class="fa-solid fa-chart-column"></i>
+    Reportes
+</li>
 
 
 
 <h4>CONFIGURACIÓN</h4>
 
 
-<li>⚙ Configuración</li>
+<li>
+    <i class="fa-solid fa-gear"></i>
+    Configuración
+</li>
 
 
 </ul>
@@ -91,25 +121,58 @@
 
 
 
-<header>
+<header class="topbar">
 
 
-<div>
+<div class="top-left">
+
+
+<i class="fa-solid fa-bars menu-icon"></i>
+
 
 <h3>Inicio</h3>
+
 
 </div>
 
 
-<div class="profile">
 
-🔔
 
-👤 <b>Elvis Yohan</b>
+<div class="top-user">
 
-<br>
 
-<span>Administrador</span>
+<div class="notification">
+
+<i class="fa-regular fa-bell"></i>
+
+<span>3</span>
+
+</div>
+
+
+
+
+<div class="avatar">
+
+<i class="fa-solid fa-user"></i>
+
+</div>
+
+
+
+<div class="user-text">
+
+
+<b>Elvis Yohan</b>
+
+<small>Administrador</small>
+
+
+</div>
+
+
+
+<i class="fa-solid fa-chevron-down arrow"></i>
 
 
 </div>
@@ -123,23 +186,67 @@
 
 
 
-<h1>Bienvenido, Elvis Yohan</h1>
+<div class="welcome">
+
+
+<div>
+
+<h1>
+Bienvenido, Elvis Yohan 👋
+</h1>
+
 
 <p>
 Aquí tienes un resumen general de tu farmacia.
+Revisa el estado del inventario y movimientos recientes.
 </p>
 
 
+</div>
 
 
 
-<!-- TARJETAS -->
+<div class="date-box">
+
+
+<i class="fa-solid fa-calendar-days"></i>
+
+
+<div>
+
+<b>Miércoles, 21 Mayo 2026</b>
+
+<p>
+Última actualización: 10:45 AM
+</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- TARJETAS CORREGIDAS -->
 
 
 <div class="cards">
 
 
+
 <div class="card blue">
+
+
+<div class="icon">
+<i class="fa-solid fa-capsules"></i>
+</div>
+
 
 <h4>Total medicamentos</h4>
 
@@ -147,11 +254,20 @@ Aquí tienes un resumen general de tu farmacia.
 
 <p>Activos en inventario</p>
 
+
 </div>
 
 
 
+
+
 <div class="card green">
+
+
+<div class="icon">
+<i class="fa-solid fa-arrow-down"></i>
+</div>
+
 
 <h4>Entradas (mes)</h4>
 
@@ -159,11 +275,20 @@ Aquí tienes un resumen general de tu farmacia.
 
 <p>S/ 12,450.00</p>
 
+
 </div>
 
 
 
+
+
 <div class="card orange">
+
+
+<div class="icon">
+<i class="fa-solid fa-arrow-up"></i>
+</div>
+
 
 <h4>Salidas (mes)</h4>
 
@@ -171,11 +296,21 @@ Aquí tienes un resumen general de tu farmacia.
 
 <p>S/ 18,780.50</p>
 
+
 </div>
 
 
 
+
+
+
 <div class="card purple">
+
+
+<div class="icon">
+<i class="fa-solid fa-dollar-sign"></i>
+</div>
+
 
 <h4>Valor del inventario</h4>
 
@@ -183,11 +318,21 @@ Aquí tienes un resumen general de tu farmacia.
 
 <p>Total actual</p>
 
+
 </div>
 
 
 
+
+
+
 <div class="card cyan">
+
+
+<div class="icon">
+<i class="fa-solid fa-users"></i>
+</div>
+
 
 <h4>Usuarios activos</h4>
 
@@ -195,10 +340,14 @@ Aquí tienes un resumen general de tu farmacia.
 
 <p>En el sistema</p>
 
+
 </div>
 
 
+
 </div>
+
+
 
 
 
@@ -210,20 +359,63 @@ Aquí tienes un resumen general de tu farmacia.
 
 
 
-<div class="box">
-
+<div class="box acciones">
 
 <h2>Acciones rápidas</h2>
 
 
-<button>💊 Registrar Medicamento</button>
+<button class="btn blue-btn">
 
-<button>⬇ Entrada Medicamentos</button>
+<i class="fa-solid fa-capsules"></i>
 
-<button>⬆ Salida Medicamentos</button>
+<span>
+Registrar<br>
+Medicamento
+</span>
 
-<button>📦 Ver Inventario</button>
+</button>
 
+
+
+<button class="btn green-btn">
+
+<i class="fa-solid fa-arrow-down"></i>
+
+<span>
+Entrada<br>
+Medicamentos
+</span>
+
+</button>
+
+
+
+
+<button class="btn orange-btn">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+<span>
+Salida<br>
+Medicamentos
+</span>
+
+</button>
+
+
+
+
+
+<button class="btn purple-btn">
+
+<i class="fa-solid fa-box"></i>
+
+<span>
+Ver Inventario<br>
+Completo
+</span>
+
+</button>
 
 
 </div>
@@ -232,59 +424,291 @@ Aquí tienes un resumen general de tu farmacia.
 
 
 
-<div class="box">
 
+
+<div class="box movimientos">
+
+
+<div class="mov-title">
 
 <h2>Movimientos recientes</h2>
 
+<a>
+Ver todos los movimientos →
+</a>
 
 
-<table>
+</div>
 
+
+
+
+<table class="mov-table">
+
+
+<thead>
 
 <tr>
 
 <th>Fecha</th>
 <th>Tipo</th>
 <th>Descripción</th>
+<th>Referencia</th>
 <th>Cantidad</th>
+<th>Valor (S/)</th>
+<th>Usuario</th>
 
 
 </tr>
+
+</thead>
+
+
+
+<tbody>
+
+
+<tr>
+
+<td>21/05/2026 10:45</td>
+
+<td>
+<span class="entrada">
+ENTRADA
+</span>
+</td>
+
+
+<td>
+Paracetamol 500mg
+</td>
+
+
+<td>
+FAC-001245
+</td>
+
+
+<td>
+100
+</td>
+
+
+<td>
+150.00
+</td>
+
+
+<td>
+Elvis Yohan
+</td>
+
+
+</tr>
+
 
 
 
 <tr>
 
-<td>21/05/2026</td>
-<td class="in">ENTRADA</td>
-<td>Paracetamol 500mg</td>
-<td>100</td>
+
+<td>
+21/05/2026 10:20
+</td>
+
+
+<td>
+
+<span class="salida">
+SALIDA
+</span>
+
+</td>
+
+
+<td>
+Amoxicilina 500mg
+</td>
+
+
+<td>
+VEN-001874
+</td>
+
+
+<td>
+20
+</td>
+
+
+<td>
+60.00
+</td>
+
+
+<td>
+María González
+</td>
+
 
 </tr>
+
 
 
 
 <tr>
 
-<td>21/05/2026</td>
-<td class="out">SALIDA</td>
-<td>Amoxicilina 500mg</td>
-<td>20</td>
+
+<td>
+21/05/2026 09:58
+</td>
+
+
+<td>
+
+<span class="entrada">
+ENTRADA
+</span>
+
+</td>
+
+
+<td>
+Ibuprofeno 400mg
+</td>
+
+
+<td>
+FAC-001244
+</td>
+
+
+<td>
+50
+</td>
+
+
+<td>
+75.00
+</td>
+
+
+<td>
+Elvis Yohan
+</td>
+
 
 </tr>
 
+
+
+
+<tr>
+
+
+<td>
+21/05/2026 09:30
+</td>
+
+
+<td>
+
+<span class="salida">
+SALIDA
+</span>
+
+</td>
+
+
+<td>
+Loratadina 10mg
+</td>
+
+
+<td>
+VEN-001873
+</td>
+
+
+<td>
+10
+</td>
+
+
+<td>
+15.00
+</td>
+
+
+<td>
+Carlos Rodriguez
+</td>
+
+
+</tr>
+
+
+
+
+<tr>
+
+
+<td>
+21/05/2026 09:15
+</td>
+
+
+<td>
+
+<span class="entrada">
+ENTRADA
+</span>
+
+</td>
+
+
+<td>
+Omeprazol 20mg
+</td>
+
+
+<td>
+FAC-001243
+</td>
+
+
+<td>
+30
+</td>
+
+
+<td>
+90.00
+</td>
+
+
+<td>
+Elvis Yohan
+</td>
+
+
+</tr>
+
+
+
+</tbody>
 
 
 </table>
 
 
+</div>
+
 
 </div>
 
 
 
-</div>
 
 
 
@@ -294,17 +718,116 @@ Aquí tienes un resumen general de tu farmacia.
 <div class="bottom">
 
 
+
 <div class="box chart">
 
-<h2>Entradas y salidas</h2>
+<h2>
+Entradas y salidas
+<span>(Resumen mensual)</span>
+</h2>
 
+
+<div class="legend">
+
+<div>
+<span class="green-box"></span>
+Entradas (S/)
+</div>
+
+
+<div>
+<span class="orange-box"></span>
+Salidas (S/)
+</div>
+
+</div>
+
+
+
+<div class="graph">
+
+
+<div class="month">
 
 <div class="bars">
 
-<div class="bar one"></div>
-<div class="bar two"></div>
-<div class="bar three"></div>
-<div class="bar four"></div>
+<div class="chart-bar chart-entry" style="height:80px"></div>
+
+<div class="chart-bar chart-output" style="height:100px"></div>
+
+</div>
+
+<p>Ene</p>
+
+</div>
+
+
+
+
+<div class="month">
+
+<div class="bars">
+
+<div class="chart-bar chart-entry" style="height:100px"></div>
+<div class="chart-bar chart-output" style="height:130px"></div>
+
+</div>
+
+<p>Feb</p>
+
+</div>
+
+
+
+
+
+<div class="month">
+
+<div class="bars">
+
+<div class="chart-bar chart-entry" style="height:120px"></div>
+<div class="chart-bar chart-output" style="height:160px"></div>
+
+</div>
+
+<p>Mar</p>
+
+</div>
+
+
+
+
+
+<div class="month">
+
+<div class="bars">
+
+<div class="chart-bar chart-entry" style="height:150px"></div>
+<div class="chart-bar chart-output" style="height:190px"></div>
+
+</div>
+
+<p>Abr</p>
+
+</div>
+
+
+
+
+
+<div class="month">
+
+<div class="bars">
+
+<div class="chart-bar chart-entry" style="height:110px"></div>
+<div class="chart-bar chart-output" style="height:170px"></div>
+
+</div>
+
+<p>May</p>
+
+</div>
+
 
 
 </div>
@@ -317,24 +840,182 @@ Aquí tienes un resumen general de tu farmacia.
 
 
 
-<div class="box">
 
 
-<h2>Medicamentos con stock bajo</h2>
+<div class="box stock">
 
 
-<p>Paracetamol 500mg 🔴</p>
+<div class="stock-title">
 
-<p>Amoxicilina 500mg 🔴</p>
+<h2>
+Medicamentos con stock bajo 
+<span>6</span>
+</h2>
 
-<p>Ibuprofeno 400mg 🔴</p>
+<a>Ver todos →</a>
+
+</div>
 
 
+
+<table class="stock-table">
+
+
+<thead>
+
+<tr>
+
+<th>Medicamento</th>
+<th>Stock actual</th>
+<th>Stock mínimo</th>
+<th>Estado</th>
+
+</tr>
+
+</thead>
+
+
+
+<tbody>
+
+
+<tr>
+
+<td>Paracetamol 500mg</td>
+
+<td class="danger-number">
+12
+</td>
+
+<td>
+50
+</td>
+
+<td>
+<span class="status">
+Bajo
+</span>
+</td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td>Amoxicilina 500mg</td>
+
+<td class="danger-number">
+8
+</td>
+
+<td>
+40
+</td>
+
+<td>
+<span class="status">
+Bajo
+</span>
+</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td>Ibuprofeno 400mg</td>
+
+<td class="danger-number">
+15
+</td>
+
+<td>
+30
+</td>
+
+<td>
+<span class="status">
+Bajo
+</span>
+</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td>Loratadina 10mg</td>
+
+<td class="danger-number">
+10
+</td>
+
+<td>
+25
+</td>
+
+<td>
+<span class="status">
+Bajo
+</span>
+</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td>Omeprazol 20mg</td>
+
+<td class="danger-number">
+18
+</td>
+
+<td>
+30
+</td>
+
+<td>
+<span class="status">
+Bajo
+</span>
+</td>
+
+</tr>
+
+
+
+</tbody>
+
+
+</table>
+
+
+
+<div class="stock-footer">
+
+Ver todos los medicamentos →
 
 </div>
 
 
 </div>
+
+
+
+</div>
+
 
 
 
@@ -346,6 +1027,7 @@ Aquí tienes un resumen general de tu farmacia.
 © 2026 Sistema de Gestión Farmacéutica
 
 </footer>
+
 
 
 
