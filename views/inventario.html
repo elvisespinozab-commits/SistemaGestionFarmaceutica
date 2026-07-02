@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Inventario · Sistema de Gestión Farmacéutica</title>
+
+<link rel="stylesheet" href="/css/dashboard.css">
+<link rel="stylesheet" href="/css/inventario.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<div class="layout">
+
+
+<!-- MENU LATERAL -->
+
+<aside class="sidebar">
+
+
+<div class="logo">
+
+<div class="logo-icon">+</div>
+
+<div>
+<h2>SGF</h2>
+<p>Sistema de Gestión<br>Farmacéutica</p>
+</div>
+
+</div>
+
+
+
+<ul>
+
+<li>⌂ Inicio</li>
+
+
+<h4>MÓDULO PRINCIPAL</h4>
+
+
+<li>
+    <i class="fa-solid fa-capsules"></i>
+    Medicamentos
+</li>
+
+
+<li class="sub">
+    Registrar medicamento
+</li>
+
+<li class="sub">
+    Lista de medicamentos
+</li>
+
+<li class="sub">
+    Categorías
+</li>
+
+
+
+<li class="active">
+    <i class="fa-solid fa-box"></i>
+    Inventario
+</li>
+
+
+
+<li>
+    <i class="fa-solid fa-users"></i>
+    Usuarios
+</li>
+
+
+
+<li>
+    <i class="fa-solid fa-chart-column"></i>
+    Reportes
+</li>
+
+
+
+<h4>CONFIGURACIÓN</h4>
+
+
+<li>
+    <i class="fa-solid fa-gear"></i>
+    Configuración
+</li>
+
+
+</ul>
+
+
+<div class="logout">
+
+🚪 Cerrar sesión
+
+</div>
+
+
+</aside>
+
+
+
+
+<!-- CONTENIDO -->
+
+
+<section class="content">
+
+
+
+<header class="topbar">
+
+
+<div class="top-left">
+
+
+<i class="fa-solid fa-bars menu-icon"></i>
+
+
+<h3>Inventario</h3>
+
+
+</div>
+
+
+
+
+<div class="top-user">
+
+
+<div class="avatar">
+
+<i class="fa-solid fa-user"></i>
+
+</div>
+
+
+
+<div class="user-text">
+
+
+<b id="userNombre">Elvis Espinoza</b>
+
+<small id="userRol">Administrador</small>
+
+
+</div>
+
+
+
+<i class="fa-solid fa-chevron-down arrow"></i>
+
+
+</div>
+
+
+
+</header>
+
+
+
+<!-- ENCABEZADO DE PÁGINA -->
+
+<div class="inv-header">
+
+<div>
+<h1>Inventario de Medicamentos</h1>
+<p>Consulta el stock disponible, controla niveles mínimos y gestiona entradas y salidas.</p>
+</div>
+
+<div class="inv-header-actions">
+
+<button class="inv-btn inv-btn-outline">
+<i class="fa-solid fa-file-arrow-down"></i>
+Exportar
+</button>
+
+<button class="inv-btn inv-btn-primary">
+<i class="fa-solid fa-plus"></i>
+Registrar Entrada
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- TARJETAS RESUMEN -->
+
+<div class="cards inv-cards">
+
+<div class="card blue">
+<div class="icon"><i class="fa-solid fa-capsules"></i></div>
+<h4>Total productos</h4>
+<h2 id="cardTotalProductos">--</h2>
+<p>Activos en inventario</p>
+</div>
+
+<div class="card purple">
+<div class="icon"><i class="fa-solid fa-sack-dollar"></i></div>
+<h4>Valor del inventario</h4>
+<h2 id="cardValorInventario">S/ 0.00</h2>
+<p>Actualizado hoy</p>
+</div>
+
+<div class="card orange">
+<div class="icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+<h4>Stock bajo</h4>
+<h2 id="cardStockBajo">--</h2>
+<p>Requieren reposición</p>
+</div>
+
+<div class="card red">
+<div class="icon"><i class="fa-solid fa-circle-xmark"></i></div>
+<h4>Agotados</h4>
+<h2 id="cardAgotados">--</h2>
+<p>Sin unidades disponibles</p>
+</div>
+
+<div class="card green">
+<div class="icon"><i class="fa-solid fa-right-left"></i></div>
+<h4>Movimientos hoy</h4>
+<h2 id="cardMovimientosHoy">--</h2>
+<p>Entradas y salidas</p>
+</div>
+
+</div>
+
+
+
+<!-- FILTROS -->
+
+<div class="filters-box">
+
+<div class="search-wrap">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input type="text" id="inputBuscar" placeholder="Buscar medicamento por nombre o código...">
+</div>
+
+<select id="selectCategoria">
+<option value="">Todas las categorías</option>
+</select>
+
+<select id="selectEstado">
+<option value="">Todos los estados</option>
+<option value="en_stock">En stock</option>
+<option value="bajo">Stock bajo</option>
+<option value="agotado">Agotado</option>
+</select>
+
+<button class="inv-btn inv-btn-primary" id="btnFiltrar">
+<i class="fa-solid fa-filter"></i>
+Aplicar filtros
+</button>
+
+</div>
+
+
+
+<!-- TABLA DE INVENTARIO -->
+
+<div class="inv-table-box">
+
+<div class="inv-table-title">
+<h2>Listado de inventario <span id="inventarioSubtitulo">Cargando...</span></h2>
+</div>
+
+<table class="inv-table">
+
+<thead>
+<tr>
+<th>Código</th>
+<th>Medicamento</th>
+<th>Categoría</th>
+<th>Stock actual</th>
+<th>Stock mínimo</th>
+<th>Precio unit. (S/)</th>
+<th>Valor total (S/)</th>
+<th>Estado</th>
+<th>Acciones</th>
+</tr>
+</thead>
+
+<tbody id="inventarioBody">
+
+<tr>
+<td colspan="9" style="text-align:center; padding:20px;">Cargando inventario...</td>
+</tr>
+
+</tbody>
+
+</table>
+
+<div class="inv-pagination">
+
+<span id="inventarioInfo">Mostrando 0-0 de 0 productos</span>
+
+<div class="page-btns" id="inventarioPaginacion">
+</div>
+
+</div>
+
+</div>
+
+
+
+<footer>
+
+© 2026 Sistema de Gestión Farmacéutica
+
+</footer>
+
+
+
+
+</section>
+
+
+</div>
+
+<script src="/js/inventario.js"></script>
+
+</body>
+</html>

@@ -33,6 +33,12 @@ app.get("/dashboard",(req,res)=>{
     res.sendFile(path.join(__dirname,"views","dashboard.html"));
 
 });
+
+// Ruta de inventario
+app.get("/inventario", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "inventario.html"));
+});
+
 // Iniciar servidor
 app.listen(PORT, () => {
     console.log(`🚀 Servidor iniciado en http://localhost:${PORT}`);
