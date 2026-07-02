@@ -57,7 +57,6 @@ html, body {
     color: white;
 }
 
-/* Badge SGF superior */
 .brand-badge {
     display: inline-flex;
     align-items: center;
@@ -74,7 +73,6 @@ html, body {
     text-transform: uppercase;
 }
 
-/* Título */
 .brand-title {
     font-size: 42px;
     font-weight: 800;
@@ -89,7 +87,6 @@ html, body {
     display: block;
 }
 
-/* Línea decorativa bajo el título */
 .brand-title::after {
     content: '';
     display: block;
@@ -101,7 +98,6 @@ html, body {
     margin-bottom: 0;
 }
 
-/* Subtítulo */
 .brand-sub {
     font-size: 14.5px;
     color: rgba(255, 255, 255, 0.65);
@@ -112,7 +108,6 @@ html, body {
     max-width: 380px;
 }
 
-/* Features */
 .brand-features {
     display: flex;
     flex-direction: column;
@@ -188,7 +183,7 @@ html, body {
     width: 430px;
     background: white;
     border-radius: 24px;
-    padding: 42px 40px 36px;
+    padding: 30px 40px 28px;  /* Reducido de 42px a 30px */
     box-shadow:
         0 20px 60px rgba(10, 45, 120, 0.10),
         0 4px 20px rgba(0, 0, 0, 0.04),
@@ -199,63 +194,62 @@ html, body {
 
 .form-header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;  /* Reducido de 30px a 20px */
 }
 
-/* Logo como estampa, sin caja, tamaño natural */
 .form-logo-stamp {
-    margin: 0 auto 20px;
+    margin: 0 auto 14px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .form-logo-img {
-    width: 200px;
+    width: 180px;  /* Reducido de 200px a 180px */
     height: auto;
     object-fit: contain;
 }
 
 .form-header h2 {
-    font-size: 26px;
+    font-size: 24px;  /* Reducido de 26px a 24px */
     font-weight: 700;
     color: #111827;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     letter-spacing: -0.4px;
 }
 
 .form-header p {
-    font-size: 13.5px;
+    font-size: 13px;  /* Reducido de 13.5px a 13px */
     color: #6B7FA3;
-    line-height: 1.6;
+    line-height: 1.5;
     padding: 0 8px;
 }
 
 /* ---- Campos ---- */
 
 .field-group {
-    margin-bottom: 18px;
+    margin-bottom: 14px;  /* Reducido de 18px a 14px */
 }
 
 .label-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .label-row label {
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: 600;
     color: #1F2D4A;
 }
 
 .field-group > label {
     display: block;
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: 600;
     color: #1F2D4A;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .input-wrap {
@@ -282,7 +276,7 @@ html, body {
 .input-wrap input[type="text"],
 .input-wrap input[type="password"] {
     width: 100%;
-    height: 50px;
+    height: 46px;  /* Reducido de 50px a 46px */
     border: 1.5px solid #D8E4F5;
     border-radius: 11px;
     padding: 0 46px 0 44px;
@@ -339,7 +333,7 @@ html, body {
 /* ---- Olvidaste contraseña ---- */
 
 .link-forgot {
-    font-size: 12.5px;
+    font-size: 12px;
     color: #2563EB;
     text-decoration: none;
     font-weight: 500;
@@ -356,14 +350,14 @@ html, body {
 .row-meta {
     display: flex;
     align-items: center;
-    margin: 18px 0 24px;
+    margin: 14px 0 18px;  /* Reducido de 18px 0 24px */
 }
 
 .check-label {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 13.5px;
+    font-size: 13px;
     color: #4A5A7A;
     cursor: pointer;
     user-select: none;
@@ -380,12 +374,12 @@ html, body {
 
 .btn-login {
     width: 100%;
-    height: 52px;
+    height: 48px;  /* Reducido de 52px a 48px */
     border: none;
     border-radius: 12px;
     background: linear-gradient(135deg, #2563EB 0%, #1340B8 100%);
     color: white;
-    font-size: 15.5px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
     display: flex;
@@ -425,73 +419,82 @@ html, body {
 /* ---- Footer ---- */
 
 .form-footer {
-    margin-top: 28px;
+    margin-top: 20px;  /* Reducido de 28px a 20px */
     text-align: center;
     border-top: 1px solid #EDF2FB;
-    padding-top: 20px;
+    padding-top: 16px;  /* Reducido de 20px a 16px */
 }
 
 .form-footer p {
-    font-size: 11.5px;
+    font-size: 11px;
     color: #A0B0CC;
     letter-spacing: 0.3px;
 }
+
 /*================ MENSAJES =================*/
 
-.mensaje{
-
-    margin-top:20px;
-
-    padding:14px 18px;
-
-    border-radius:12px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    font-size:14px;
-
-    font-weight:500;
-
-    transition:.3s;
-
+.mensaje {
+    margin-top: 14px;   /* Reducido de 20px a 14px */
+    padding: 8px 14px;  /* Reducido de 14px 18px a 8px 14px */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;    /* Reducido de 14px a 13px */
+    font-weight: 500;
+    transition: .3s;
 }
 
-.oculto{
-
-    display:none;
-
+.oculto {
+    display: none;
 }
 
-.error{
-
-    background:#FEECEC;
-
-    color:#B91C1C;
-
-    border-left:5px solid #DC2626;
-
+.error {
+    background: #FEECEC;
+    color: #B91C1C;
+    border-left: 4px solid #DC2626;
 }
 
-.correcto{
-
-    background:#ECFDF3;
-
-    color:#166534;
-
-    border-left:5px solid #22C55E;
-
+.correcto {
+    background: #ECFDF3;
+    color: #166534;
+    border-left: 4px solid #22C55E;
 }
 
-.cargando{
+.cargando {
+    background: #EFF6FF;
+    color: #2563EB;
+    border-left: 4px solid #2563EB;
+}
 
-    background:#EFF6FF;
+/* ============================================
+   BOTÓN DE REGISTRO (ULTRA COMPACTO Y ELEGANTE)
+   ============================================ */
+.registro-container {
+    text-align: center;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid #e5e7eb;
+}
 
-    color:#2563EB;
+.registro-texto {
+    display: inline;
+    font-size: 12px;
+    color: #9ca3af;
+    margin: 0;
+}
 
-    border-left:5px solid #2563EB;
+.registro-enlace {
+    display: inline;
+    color: #2563eb;
+    font-weight: 500;
+    font-size: 12px;
+    text-decoration: none;
+    transition: color 0.2s;
+    margin-left: 4px;
+}
 
+.registro-enlace:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
 }
