@@ -9,7 +9,6 @@ let paginaActual = 1;
 const LIMITE_POR_PAGINA = 10;
 
 document.addEventListener("DOMContentLoaded", () => {
-
     verificarSesion();
     mostrarUsuario();
     configurarCerrarSesion();
@@ -19,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarUsuarios();
 
     configurarFiltros();
-
+    configurarAccionesTabla();
 });
 
 // ======================================================================
@@ -312,4 +311,40 @@ function configurarFiltros() {
             if (evento.key === "Enter") aplicarFiltros();
         });
     }
+}
+
+// ======================================================================
+// Acciones de la tabla (Eliminar)
+// ======================================================================
+function configurarAccionesTabla() {
+    const tbody = document.getElementById("usuariosBody");
+    if (!tbody) return;
+
+    tbody.addEventListener("click", async (evento) => {
+        const btnEliminar = evento.target.closest(".action-icon.danger");
+        
+        if (btnEliminar) {
+            const idUsuario = btnEliminar.getAttribute("data-id");
+            
+            if (confirm("¿Estás seguro de que deseas eliminar (desactivar) este usuario?")) {
+                try {
+                    const respuesta = await fetch(`/api/usuarios/${idUsuario}`, {
+                        method: "DELETE"
+                    });
+                    const datos = await respuesta.json();
+                    
+                    if (datos.success) {
+                        // Recargar la tabla y las tarjetas superiores
+                        cargarUsuarios();
+                        cargarResumenUsuarios();
+                    } else {
+                        alert(datos.mensaje || "Error al eliminar el usuario.");
+                    }
+                } catch (error) {
+                    console.log("Error al eliminar:", error);
+                    alert("Ocurrió un error de conexión.");
+                }
+            }
+        }
+    });
 }

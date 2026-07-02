@@ -297,3 +297,49 @@
 .inv-btn-primary:hover {
     background-color: #1052cc;
 }
+
+/* ==================================================================
+   CORRECCIONES VISUALES
+   ================================================================== */
+
+/* 1. Igualar grosores de inputs, selects y botones */
+.search-wrap input,
+.filters-box select,
+.inv-btn {
+    height: 42px !important; /* Altura estricta e igual para todos */
+    box-sizing: border-box !important;
+    margin: 0;
+}
+
+.inv-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px !important;
+}
+
+/* 2. Alineación perfecta de textos en tarjetas de resumen */
+.usr-cards .card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea los textos a la izquierda */
+    justify-content: center;
+    text-align: left;
+    position: relative; /* Evita que el icono se mueva de su lugar */
+    padding: 20px;
+}
+
+.usr-cards .card h4 {
+    margin: 0 0 8px 0; /* Elimina márgenes inconsistentes */
+    width: 100%;
+}
+
+.usr-cards .card h2 {
+    margin: 0 0 4px 0;
+    width: 100%;
+}
+
+.usr-cards .card p {
+    margin: 0;
+    width: 100%;
+}

@@ -183,9 +183,37 @@ async function obtenerListadoUsuarios(req, res) {
     }
 }
 
+// ==================================================================
+// DELETE /api/usuarios/:id
+// Eliminación lógica del usuario (cambia estado a 0 para no romper
+// la integridad referencial con el historial, entradas y salidas).
+// ==================================================================
+async function eliminarUsuario(req, res) {
+    try {
+        const { id } = req.params;
+        const request = new sql.Request();
+        request.input("id", sql.Int, id);
+
+        const resultado = await request.query(`
+            UPDATE [Usuarios]
+            SET estado = 0
+            WHERE id_usuario = @id
+        `);
+
+        if (resultado.rowsAffected[0] > 0) {
+            res.json({ success: true, mensaje: "Usuario eliminado (desactivado) correctamente" });
+        } else {
+            res.status(404).json({ success: false, mensaje: "Usuario no encontrado" });
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ success: false, mensaje: "Error al eliminar el usuario" });
+    }
+}
 
 module.exports = {
     obtenerResumenUsuarios,
     obtenerRoles,
-    obtenerListadoUsuarios
+    obtenerListadoUsuarios,
+    eliminarUsuario
 };
