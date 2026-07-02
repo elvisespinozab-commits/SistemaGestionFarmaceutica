@@ -6,6 +6,9 @@ const { conectar } = require("./config/db");
 // Importar rutas
 const loginRoutes = require("./routes/loginRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
+// Si tienes configurados los archivos en tu carpeta routes, puedes importarlos aquí:
+// const medicamentosRoutes = require("./routes/medicamentosRoutes");
+// const inventarioRoutes = require("./routes/inventarioRoutes");
 
 const app = express();
 
@@ -29,14 +32,17 @@ app.use("/", loginRoutes);
 app.use("/", dashboardRoutes);
 
 app.get("/dashboard",(req,res)=>{
-
     res.sendFile(path.join(__dirname,"views","dashboard.html"));
-
 });
 
 // Ruta de inventario
 app.get("/inventario", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "inventario.html"));
+});
+
+// ---> ¡NUEVO! Ruta de medicamentos (Esto es lo que faltaba) <---
+app.get("/medicamentos", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "medicamentos.html"));
 });
 
 // Iniciar servidor

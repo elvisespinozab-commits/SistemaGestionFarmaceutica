@@ -20,9 +20,7 @@
 
     <div class="layout">
 
-
-        <!-- MENU LATERAL -->
-        <aside class="sidebar">
+<aside class="sidebar">
 
             <div class="logo">
                 <div class="logo-icon">+</div>
@@ -33,43 +31,55 @@
             </div>
 
             <ul>
-                <li class="active">⌂ Inicio</li>
+                <li class="active">
+                    <a href="/dashboard">⌂ Inicio</a>
+                </li>
 
                 <h4>MÓDULO PRINCIPAL</h4>
 
                 <li>
-                    <i class="fa-solid fa-capsules"></i>
-                    Medicamentos
+                    <a href="/medicamentos">
+                        <i class="fa-solid fa-capsules"></i>
+                        Medicamentos
+                    </a>
                 </li>
-                <li class="sub">Registrar medicamento</li>
-                <li class="sub">Lista de medicamentos</li>
-                <li class="sub">Categorías</li>
+                <li class="sub"><a href="/medicamentos">Registrar medicamento</a></li>
+                <li class="sub"><a href="/medicamentos">Lista de medicamentos</a></li>
+                <li class="sub"><a href="/categorias">Categorías</a></li>
 
                 <li>
-                    <i class="fa-solid fa-box"></i>
-                    Inventario
+                    <a href="/inventario">
+                        <i class="fa-solid fa-box"></i>
+                        Inventario
+                    </a>
                 </li>
 
                 <li>
-                    <i class="fa-solid fa-users"></i>
-                    Usuarios
+                    <a href="/usuarios">
+                        <i class="fa-solid fa-users"></i>
+                        Usuarios
+                    </a>
                 </li>
 
                 <li>
-                    <i class="fa-solid fa-chart-column"></i>
-                    Reportes
+                    <a href="/reportes">
+                        <i class="fa-solid fa-chart-column"></i>
+                        Reportes
+                    </a>
                 </li>
 
                 <h4>CONFIGURACIÓN</h4>
 
                 <li>
-                    <i class="fa-solid fa-gear"></i>
-                    Configuración
+                    <a href="/configuracion">
+                        <i class="fa-solid fa-gear"></i>
+                        Configuración
+                    </a>
                 </li>
             </ul>
 
             <div class="logout">
-                🚪 Cerrar sesión
+                <a href="/login">🚪 Cerrar sesión</a>
             </div>
 
         </aside>
@@ -170,7 +180,7 @@
             <!-- SECCIONES ACCIONES + MOVIMIENTOS -->
             <div class="sections">
 
-                <!-- ACCIONES RÁPIDAS -->
+               <!-- ACCIONES RÁPIDAS -->
                 <div class="box acciones">
                     <h2>Acciones rápidas</h2>
 
@@ -194,7 +204,6 @@
                         <span>Ver Inventario<br>Completo</span>
                     </button>
                 </div>
-
 
                 <!-- MOVIMIENTOS RECIENTES -->
                 <div class="box movimientos">

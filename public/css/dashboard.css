@@ -1864,3 +1864,9 @@ r {
 .mov-table-wrapper::-webkit-scrollbar-thumb:hover {
     background: #64748b;
 }
+.sidebar ul li a, .logout a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+}
