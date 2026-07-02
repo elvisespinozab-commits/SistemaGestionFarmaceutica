@@ -198,9 +198,6 @@ form.addEventListener("submit", async (e) => {
 // Eliminar
 // ------------------------------------------------------------
 async function eliminarCategoria(id) {
-    const confirmado = confirm("¿Seguro que deseas eliminar esta categoría? Esta acción no se puede deshacer.");
-    if (!confirmado) return;
-
     try {
         const resp = await fetch(`/api/categorias/${id}`, { method: "DELETE" });
         const json = await resp.json();
