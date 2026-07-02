@@ -1,3 +1,16 @@
+/* =========================================================
+   MEDICAMENTOS.CSS
+   Estilos propios de la vista de Medicamentos.
+   No modifica dashboard.css: reutiliza sus tokens de color
+   y la clase .box (tarjeta blanca, sombra, radio 18px).
+   Paleta reutilizada de dashboard.css:
+   azul  #1769ff | verde #22c55e/#16a34a | naranja #f59e0b/#f97316
+   rojo  #dc2626/#ef4444 | gris texto #64748b | fondo input #f8fafc
+   ========================================================= */
+
+
+/* ================= BLOQUE FORMULARIO ================= */
+
 .form-box{
     margin-top: 10px;
 }
@@ -52,7 +65,7 @@
 }
 
 
-
+/* ================= BOTONES DE ACCIÓN ================= */
 
 .form-actions{
     display: flex;
@@ -115,7 +128,7 @@
 }
 
 
-
+/* ================= BLOQUE LISTADO ================= */
 
 .table-box{
     margin-top: 20px;
@@ -202,7 +215,22 @@
 }
 
 
+.med-table tbody tr{
+    cursor: pointer;
+}
 
+
+.med-table tbody tr.selected-row{
+    background: #eaf1ff;
+}
+
+
+.med-table tbody tr.selected-row:hover{
+    background: #dbe8ff;
+}
+
+
+/* ================= BADGES DE ESTADO ================= */
 
 .badge{
     padding: 6px 14px;
@@ -225,6 +253,13 @@
 }
 
 
+.badge-off{
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+
+/* ================= ACCIONES POR FILA ================= */
 
 .row-actions{
     display: flex;
@@ -262,7 +297,7 @@
 }
 
 
-
+/* ================= RESPONSIVE ================= */
 
 @media(max-width: 1100px){
 

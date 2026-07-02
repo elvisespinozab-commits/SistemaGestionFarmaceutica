@@ -23,7 +23,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <div class="layout">
 
 
-
+<!-- MENU LATERAL (idéntico a dashboard.html, "Medicamentos" activo) -->
 
 <aside class="sidebar">
 
@@ -184,7 +184,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 
 
-
+<!-- TÍTULO DE LA PÁGINA -->
 
 <div class="welcome">
 
@@ -202,7 +202,7 @@ Registra, edita y controla el inventario de medicamentos de tu farmacia.
 
 
 
-
+<!-- FORMULARIO -->
 
 <div class="box form-box">
 
@@ -224,18 +224,7 @@ Registra, edita y controla el inventario de medicamentos de tu farmacia.
         <label for="idCategoria">Categoría</label>
         <select id="idCategoria" name="idCategoria">
             <option value="" selected disabled>Seleccione...</option>
-            <option value="1">Analgésicos</option>
-            <option value="2">Antibióticos</option>
-            <option value="3">Vitaminas</option>
-            <option value="4">Jarabes</option>
-            <option value="5">Inyectables</option>
-            <option value="6">Antiinflamatorios</option>
-            <option value="7">Antigripales</option>
-            <option value="8">Gastrointestinales</option>
-            <option value="9">Dermatológicos</option>
-            <option value="10">Antialérgicos</option>
-            <option value="11">Cardiovasculares</option>
-            <option value="12">Oftálmicos</option>
+            <!-- Se llena dinámicamente desde /api/categorias (public/js/medicamentos.js) -->
         </select>
     </div>
 
@@ -318,7 +307,7 @@ Registra, edita y controla el inventario de medicamentos de tu farmacia.
 
 
 
-
+<!-- LISTADO -->
 
 <div class="box table-box">
 
@@ -356,64 +345,7 @@ Registra, edita y controla el inventario de medicamentos de tu farmacia.
 
 <tbody id="tablaMedicamentosBody">
 
-
-
-<tr data-id="2">
-    <td>MED002</td>
-    <td>Amoxicilina 500mg</td>
-    <td>Antibióticos</td>
-    <td>Laboratorios Portugal</td>
-    <td>Caja x 50</td>
-    <td>120.00</td>
-    <td>800</td>
-    <td>150</td>
-    <td>20/05/2026</td>
-    <td><span class="badge badge-ok">Activo</span></td>
-    <td>
-        <div class="row-actions">
-            <button class="icon-btn icon-edit" title="Editar"><i class="fa-solid fa-pen"></i></button>
-            <button class="icon-btn icon-delete" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
-        </div>
-    </td>
-</tr>
-
-<tr data-id="4">
-    <td>MED004</td>
-    <td>Loratadina 10mg</td>
-    <td>Antialérgicos</td>
-    <td>Laboratorios Farmindustria</td>
-    <td>Caja x 20</td>
-    <td>42.00</td>
-    <td>10</td>
-    <td>100</td>
-    <td>05/08/2026</td>
-    <td><span class="badge badge-low">Stock bajo</span></td>
-    <td>
-        <div class="row-actions">
-            <button class="icon-btn icon-edit" title="Editar"><i class="fa-solid fa-pen"></i></button>
-            <button class="icon-btn icon-delete" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
-        </div>
-    </td>
-</tr>
-
-<tr data-id="5">
-    <td>MED005</td>
-    <td>Omeprazol 20mg</td>
-    <td>Gastrointestinales</td>
-    <td>Laboratorios Hersil</td>
-    <td>Caja x 30</td>
-    <td>90.00</td>
-    <td>600</td>
-    <td>100</td>
-    <td>22/09/2028</td>
-    <td><span class="badge badge-ok">Activo</span></td>
-    <td>
-        <div class="row-actions">
-            <button class="icon-btn icon-edit" title="Editar"><i class="fa-solid fa-pen"></i></button>
-            <button class="icon-btn icon-delete" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
-        </div>
-    </td>
-</tr>
+<!-- Se llena dinámicamente desde /api/medicamentos (public/js/medicamentos.js) -->
 
 </tbody>
 
@@ -439,6 +371,8 @@ Registra, edita y controla el inventario de medicamentos de tu farmacia.
 
 </div>
 
+
+<script src="/js/medicamentos.js"></script>
 
 </body>
 
