@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Usuarios · Sistema de Gestión Farmacéutica</title>
+
+<link rel="stylesheet" href="/css/dashboard.css">
+<link rel="stylesheet" href="/css/usuarios.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<div class="layout">
+
+
+<!-- MENU LATERAL -->
+
+<aside class="sidebar">
+
+
+<div class="logo">
+
+<div class="logo-icon">+</div>
+
+<div>
+<h2>SGF</h2>
+<p>Sistema de Gestión<br>Farmacéutica</p>
+</div>
+
+</div>
+
+
+
+<ul>
+
+<li>⌂ Inicio</li>
+
+
+<h4>MÓDULO PRINCIPAL</h4>
+
+
+<li>
+    <i class="fa-solid fa-capsules"></i>
+    Medicamentos
+</li>
+
+
+<li class="sub">
+    Registrar medicamento
+</li>
+
+<li class="sub">
+    Lista de medicamentos
+</li>
+
+<li class="sub">
+    Categorías
+</li>
+
+
+
+<li>
+    <i class="fa-solid fa-box"></i>
+    Inventario
+</li>
+
+
+
+<li class="active">
+    <i class="fa-solid fa-users"></i>
+    Usuarios
+</li>
+
+
+
+<li>
+    <i class="fa-solid fa-chart-column"></i>
+    Reportes
+</li>
+
+
+
+<h4>CONFIGURACIÓN</h4>
+
+
+<li>
+    <i class="fa-solid fa-gear"></i>
+    Configuración
+</li>
+
+
+</ul>
+
+
+<div class="logout">
+
+🚪 Cerrar sesión
+
+</div>
+
+
+</aside>
+
+
+
+
+<!-- CONTENIDO -->
+
+
+<section class="content">
+
+
+
+<header class="topbar">
+
+
+<div class="top-left">
+
+
+<i class="fa-solid fa-bars menu-icon"></i>
+
+
+<h3>Usuarios</h3>
+
+
+</div>
+
+
+
+
+<div class="top-user">
+
+
+<div class="avatar">
+
+<i class="fa-solid fa-user"></i>
+
+</div>
+
+
+
+<div class="user-text">
+
+
+<b id="userNombre">Elvis Espinoza</b>
+
+<small id="userRol">Administrador</small>
+
+
+</div>
+
+
+
+<i class="fa-solid fa-chevron-down arrow"></i>
+
+
+</div>
+
+
+
+</header>
+
+
+
+<!-- ENCABEZADO DE PÁGINA -->
+
+<div class="usr-header">
+
+<div>
+<h1>Administración de Usuarios</h1>
+<p>Gestiona las cuentas del sistema y controla el acceso por roles.</p>
+</div>
+
+<div class="inv-header-actions">
+
+<button class="inv-btn inv-btn-primary">
+<i class="fa-solid fa-plus"></i>
+Nuevo Usuario
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- TARJETAS RESUMEN -->
+
+<div class="cards usr-cards">
+
+<div class="card blue">
+<div class="icon"><i class="fa-solid fa-users"></i></div>
+<h4>Total usuarios</h4>
+<h2 id="cardTotalUsuarios">--</h2>
+<p>Registrados en el sistema</p>
+</div>
+
+<div class="card purple">
+<div class="icon"><i class="fa-solid fa-user-shield"></i></div>
+<h4>Administradores</h4>
+<h2 id="cardAdministradores">--</h2>
+<p>Con acceso total</p>
+</div>
+
+<div class="card green">
+<div class="icon"><i class="fa-solid fa-user-check"></i></div>
+<h4>Activos</h4>
+<h2 id="cardActivos">--</h2>
+<p>Sesión habilitada</p>
+</div>
+
+<div class="card red">
+<div class="icon"><i class="fa-solid fa-user-slash"></i></div>
+<h4>Inactivos</h4>
+<h2 id="cardInactivos">--</h2>
+<p>Acceso deshabilitado</p>
+</div>
+
+<div class="card orange">
+<div class="icon"><i class="fa-solid fa-user-plus"></i></div>
+<h4>Nuevos (30 días)</h4>
+<h2 id="cardNuevos">--</h2>
+<p>Registrados este mes</p>
+</div>
+
+</div>
+
+
+
+<!-- FILTROS -->
+
+<div class="filters-box">
+
+<div class="search-wrap">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input type="text" id="inputBuscar" placeholder="Buscar usuario por nombre o correo...">
+</div>
+
+<select id="selectRol">
+<option value="">Todos los roles</option>
+</select>
+
+<select id="selectEstado">
+<option value="">Todos los estados</option>
+<option value="activo">Activo</option>
+<option value="inactivo">Inactivo</option>
+</select>
+
+<button class="inv-btn inv-btn-primary" id="btnFiltrar">
+<i class="fa-solid fa-filter"></i>
+Aplicar filtros
+</button>
+
+</div>
+
+
+
+<!-- TABLA DE USUARIOS -->
+
+<div class="usr-table-box">
+
+<div class="usr-table-title">
+<h2>Listado de usuarios <span id="usuariosSubtitulo">Cargando...</span></h2>
+</div>
+
+<table class="usr-table">
+
+<thead>
+<tr>
+<th>Usuario</th>
+<th>Correo</th>
+<th>Rol</th>
+<th>Estado</th>
+<th>Último acceso</th>
+<th>Acciones</th>
+</tr>
+</thead>
+
+<tbody id="usuariosBody">
+
+<tr>
+<td colspan="6" style="text-align:center; padding:20px;">Cargando usuarios...</td>
+</tr>
+
+</tbody>
+
+</table>
+
+<div class="usr-pagination">
+
+<span id="usuariosInfo">Mostrando 0-0 de 0 usuarios</span>
+
+<div class="page-btns" id="usuariosPaginacion">
+</div>
+
+</div>
+
+</div>
+
+
+
+<footer>
+
+© 2026 Sistema de Gestión Farmacéutica
+
+</footer>
+
+
+
+
+</section>
+
+
+</div>
+
+<script src="/js/usuarios.js"></script>
+
+</body>
+</html>
