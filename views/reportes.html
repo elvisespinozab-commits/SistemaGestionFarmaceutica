@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de Gestión Farmacéutica | Reportes</title>
+
+    <link rel="stylesheet" href="/css/reportes.css">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <!-- ===================== SIDEBAR ===================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="bi bi-capsule-pill"></i>
+
+            <div>
+
+                <h2>SGF</h2>
+
+                <span>Sistema Farmacéutico</span>
+
+            </div>
+
+        </div>
+
+        <ul>
+
+            <li>
+
+                <a href="/dashboard">
+
+                    <i class="bi bi-speedometer2"></i>
+
+                    Dashboard
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="/medicamentos">
+
+                    <i class="bi bi-capsule"></i>
+
+                    Medicamentos
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="/inventario">
+
+                    <i class="bi bi-box-seam"></i>
+
+                    Inventario
+
+                </a>
+
+            </li>
+
+            <li class="activo">
+
+                <a href="/reportes">
+
+                    <i class="bi bi-bar-chart-line-fill"></i>
+
+                    Reportes
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="/usuarios">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    Usuarios
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="/logout">
+
+                    <i class="bi bi-box-arrow-right"></i>
+
+                    Cerrar sesión
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ===================== CONTENIDO ===================== -->
+
+    <main class="contenido">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+
+                    Reportes
+
+                </h1>
+
+                <p>
+
+                    Panel de análisis del inventario
+
+                </p>
+
+            </div>
+
+            <div class="usuario">
+
+                <i class="bi bi-person-circle"></i>
+
+                <span id="nombreUsuario">
+
+                    Administrador
+
+                </span>
+
+            </div>
+
+        </header>
+
+        <!-- ===================== TARJETAS ===================== -->
+
+        <section class="cards">
+
+            <div class="card">
+
+                <div class="icono verde">
+
+                    <i class="bi bi-download"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+
+                        Entradas
+
+                    </h3>
+
+                    <h2 id="totalEntradas">
+
+                        0
+
+                    </h2>
+
+                    <small>
+
+                        Movimientos registrados
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icono rojo">
+
+                    <i class="bi bi-upload"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+
+                        Salidas
+
+                    </h3>
+
+                    <h2 id="totalSalidas">
+
+                        0
+
+                    </h2>
+
+                    <small>
+
+                        Productos entregados
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icono azul">
+
+                    <i class="bi bi-capsule"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+
+                        Medicamentos
+
+                    </h3>
+
+                    <h2 id="totalMedicamentos">
+
+                        0
+
+                    </h2>
+
+                    <small>
+
+                        Registrados
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icono naranja">
+
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+
+                        Stock Bajo
+
+                    </h3>
+
+                    <h2 id="stockBajo">
+
+                        0
+
+                    </h2>
+
+                    <small>
+
+                        Requieren reposición
+
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ===================== FILTROS ===================== -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <h2>
+
+                    Historial de Movimientos
+
+                </h2>
+
+            </div>
+
+            <div class="filtros">
+
+                <select id="tipoMovimiento">
+
+                    <option value="">
+
+                        Todos
+
+                    </option>
+
+                    <option value="Entrada">
+
+                        Entradas
+
+                    </option>
+
+                    <option value="Salida">
+
+                        Salidas
+
+                    </option>
+
+                </select>
+
+                <button id="btnFiltrar">
+
+                    <i class="bi bi-funnel-fill"></i>
+
+                    Filtrar
+
+                </button>
+
+            </div>
+
+            <div class="tabla-responsive">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Fecha</th>
+
+                            <th>Tipo</th>
+
+                            <th>Código</th>
+
+                            <th>Medicamento</th>
+
+                            <th>Cantidad</th>
+
+                            <th>Usuario</th>
+
+                            <th>Acción</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tablaMovimientos">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+                <!-- ===================== GRÁFICOS ===================== -->
+
+        <section class="graficos">
+
+            <div class="grafico-card">
+
+                <div class="card-header">
+
+                    <h2>
+
+                        Entradas por Mes
+
+                    </h2>
+
+                </div>
+
+                <canvas id="graficoEntradas"></canvas>
+
+            </div>
+
+            <div class="grafico-card">
+
+                <div class="card-header">
+
+                    <h2>
+
+                        Salidas por Mes
+
+                    </h2>
+
+                </div>
+
+                <canvas id="graficoSalidas"></canvas>
+
+            </div>
+
+        </section>
+
+        <section class="graficos">
+
+            <div class="grafico-card grande">
+
+                <div class="card-header">
+
+                    <h2>
+
+                        Medicamentos por Categoría
+
+                    </h2>
+
+                </div>
+
+                <canvas id="graficoCategorias"></canvas>
+
+            </div>
+
+        </section>
+
+        <!-- ===================== STOCK BAJO ===================== -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <h2>
+
+                    Medicamentos con Stock Bajo
+
+                </h2>
+
+            </div>
+
+            <div class="tabla-responsive">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Código</th>
+
+                            <th>Medicamento</th>
+
+                            <th>Stock</th>
+
+                            <th>Stock Mínimo</th>
+
+                            <th>Estado</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tablaStock">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <!-- ===================== MODAL ===================== -->
+
+        <div id="modalDetalle" class="modal">
+
+            <div class="modal-contenido">
+
+                <div class="modal-header">
+
+                    <h2>
+
+                        Detalle del Movimiento
+
+                    </h2>
+
+                    <button id="cerrarModal">
+
+                        <i class="bi bi-x-lg"></i>
+
+                    </button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="detalle">
+
+                        <label>ID</label>
+
+                        <span id="detalleId"></span>
+
+                    </div>
+
+                    <div class="detalle">
+
+                        <label>Fecha</label>
+
+                        <span id="detalleFecha"></span>
+
+                    </div>
+
+                    <div class="detalle">
+
+                        <label>Tipo</label>
+
+                        <span id="detalleTipo"></span>
+
+                    </div>
+
+                    <div class="detalle">
+
+                        <label>Medicamento</label>
+
+                        <span id="detalleMedicamento"></span>
+
+                    </div>
+
+                    <div class="detalle">
+
+                        <label>Cantidad</label>
+
+                        <span id="detalleCantidad"></span>
+
+                    </div>
+
+                    <div class="detalle">
+
+                        <label>Usuario</label>
+
+                        <span id="detalleUsuario"></span>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button id="btnImprimir" class="btn azul">
+
+                        <i class="bi bi-printer"></i>
+
+                        Imprimir
+
+                    </button>
+
+                    <button id="btnDescargar" class="btn verde">
+
+                        <i class="bi bi-download"></i>
+
+                        Descargar
+
+                    </button>
+
+                    <button id="btnCerrar" class="btn rojo">
+
+                        Cerrar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+                <!-- ===================== LOADER ===================== -->
+
+        <div id="loader" class="loader">
+
+            <div class="spinner"></div>
+
+            <p>
+
+                Cargando información...
+
+            </p>
+
+        </div>
+
+        <!-- ===================== FOOTER ===================== -->
+
+        <footer class="footer">
+
+            <div class="footer-contenido">
+
+                <p>
+
+                    © 2026 Sistema de Gestión Farmacéutica
+
+                </p>
+
+                <span>
+
+                    Módulo de Reportes
+
+                </span>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- ===================== SCRIPTS ===================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const fecha = document.getElementById("fechaActual");
+
+    if(fecha){
+
+        fecha.value = new Date().toISOString().split("T")[0];
+
+    }
+
+});
+
+</script>
+
+<script src="/js/reportes.js"></script>
+
+</body>
+
+</html>
