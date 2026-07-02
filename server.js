@@ -6,8 +6,8 @@ const { conectar } = require("./config/db");
 // Importar rutas
 const loginRoutes = require("./routes/loginRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
-const medicamentosRoutes = require("./routes/medicamentosRoutes");
-const categoriasRoutes = require("./routes/categoriasRoutes");
+const inventarioRoutes = require("./routes/inventarioRoutes");
+const usuarioRoutes = require("./routes/usuarioRoutes");
 
 const app = express();
 
@@ -26,18 +26,11 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "login.html"));
 });
 
-// =====================
-// Rutas API
-// =====================
-
+// Rutas del sistema
 app.use("/", loginRoutes);
 app.use("/", dashboardRoutes);
-app.use("/", medicamentosRoutes);
-app.use("/", categoriasRoutes);
-
-// =====================
-// Vistas
-// =====================
+app.use("/", inventarioRoutes);
+app.use("/", usuarioRoutes);
 
 app.get("/dashboard", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "dashboard.html"));
@@ -47,16 +40,8 @@ app.get("/inventario", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "inventario.html"));
 });
 
-app.get("/medicamentos", (req, res) => {
-    res.sendFile(path.join(__dirname, "views", "medicamentos.html"));
-});
-
-app.get("/lista-medicamentos", (req, res) => {
-    res.sendFile(path.join(__dirname, "views", "lista-medicamentos.html"));
-});
-
-app.get("/categorias", (req, res) => {
-    res.sendFile(path.join(__dirname, "views", "categorias.html"));
+app.get("/usuarios", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "usuarios.html"));
 });
 
 // Iniciar servidor
