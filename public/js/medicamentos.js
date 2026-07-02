@@ -61,7 +61,7 @@ async function cargarMedicamentos() {
         const json = await resp.json();
 
         if (!json.success) {
-            alert(json.mensaje || "No se pudo cargar el listado de medicamentos");
+            mostrarToast(json.mensaje || "No se pudo cargar el listado de medicamentos");
             return;
         }
 
@@ -70,7 +70,7 @@ async function cargarMedicamentos() {
 
     } catch (error) {
         console.log("Error al cargar medicamentos:", error);
-        alert("No se pudo conectar con el servidor");
+        mostrarToast("No se pudo conectar con el servidor");
     }
 }
 
@@ -176,7 +176,7 @@ btnNuevo.addEventListener("click", () => {
 
 btnEditar.addEventListener("click", () => {
     if (!medicamentoSeleccionado) {
-        alert("Selecciona un medicamento de la lista primero");
+        mostrarToast("Selecciona un medicamento de la lista primero");
         return;
     }
     cargarEnFormulario(medicamentoSeleccionado);
@@ -184,7 +184,7 @@ btnEditar.addEventListener("click", () => {
 
 btnEliminar.addEventListener("click", () => {
     if (!medicamentoSeleccionado) {
-        alert("Selecciona un medicamento de la lista primero");
+        mostrarToast("Selecciona un medicamento de la lista primero");
         return;
     }
     eliminarMedicamento(medicamentoSeleccionado.id_medicamento);
@@ -235,7 +235,7 @@ form.addEventListener("submit", async (e) => {
     };
 
     if (!datos.nombre) {
-        alert("El nombre es obligatorio");
+        mostrarToast("El nombre es obligatorio");
         return;
     }
 
@@ -252,7 +252,7 @@ form.addEventListener("submit", async (e) => {
         const json = await resp.json();
 
         if (!json.success) {
-            alert(json.mensaje || "No se pudo guardar el medicamento");
+            mostrarToast(json.mensaje || "No se pudo guardar el medicamento");
             return;
         }
 
@@ -261,11 +261,13 @@ form.addEventListener("submit", async (e) => {
         selectEstado.value = "1";
         medicamentoSeleccionado = null;
 
+        mostrarToast(esEdicion ? "Medicamento actualizado correctamente" : "Medicamento registrado correctamente", "success");
+
         await cargarMedicamentos();
 
     } catch (error) {
         console.log("Error al guardar:", error);
-        alert("No se pudo conectar con el servidor");
+        mostrarToast("No se pudo conectar con el servidor");
     }
 });
 
@@ -281,7 +283,7 @@ async function eliminarMedicamento(id) {
         const json = await resp.json();
 
         if (!json.success) {
-            alert(json.mensaje || "No se pudo eliminar el medicamento");
+            mostrarToast(json.mensaje || "No se pudo eliminar el medicamento");
             return;
         }
 
@@ -291,11 +293,13 @@ async function eliminarMedicamento(id) {
             inputId.value = "";
         }
 
+        mostrarToast("Medicamento eliminado correctamente", "success");
+
         await cargarMedicamentos();
 
     } catch (error) {
         console.log("Error al eliminar:", error);
-        alert("No se pudo conectar con el servidor");
+        mostrarToast("No se pudo conectar con el servidor");
     }
 }
 

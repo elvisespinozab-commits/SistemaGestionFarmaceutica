@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Medicamentos · Sistema de Gestión Farmacéutica</title>
+<title>Categorías · Sistema de Gestión Farmacéutica</title>
 
 <link rel="stylesheet" href="/css/dashboard.css">
 <link rel="stylesheet" href="/css/medicamentos.css">
@@ -23,7 +23,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <div class="layout">
 
 
-<!-- MENU LATERAL (idéntico a dashboard.html, "Medicamentos" activo) -->
+<!-- MENU LATERAL -->
 
 <aside class="sidebar">
 
@@ -55,7 +55,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </li>
 
 
-<li class="sub active" data-href="/registrar-medicamento">
+<li class="sub" data-href="/registrar-medicamento">
     Registrar medicamento
 </li>
 
@@ -63,7 +63,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     Lista de medicamentos
 </li>
 
-<li class="sub" data-href="/categorias">
+<li class="sub active" data-href="/categorias">
     Categorías
 </li>
 
@@ -131,7 +131,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <i class="fa-solid fa-bars menu-icon"></i>
 
 
-<h3>Medicamentos</h3>
+<h3>Categorías</h3>
 
 
 </div>
@@ -190,10 +190,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <div>
 
-<h1>Gestionar Medicamentos</h1>
+<h1>Gestionar Categorías</h1>
 
 <p>
-Registra, edita y controla el inventario de medicamentos de tu farmacia.
+Registra, edita y controla las categorías usadas por los medicamentos.
 </p>
 
 </div>
@@ -206,66 +206,18 @@ Registra, edita y controla el inventario de medicamentos de tu farmacia.
 
 <div class="box form-box">
 
-<form id="formMedicamento" class="form-grid" autocomplete="off">
+<form id="formCategoria" class="form-grid" autocomplete="off">
 
-    <input type="hidden" id="idMedicamento" name="idMedicamento">
-
-    <div class="field">
-        <label for="codigo">Código</label>
-        <input type="text" id="codigo" name="codigo" placeholder="MED013">
-    </div>
+    <input type="hidden" id="idCategoria" name="idCategoria">
 
     <div class="field">
         <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Paracetamol 500mg">
+        <input type="text" id="nombre" name="nombre" placeholder="Antibióticos">
     </div>
 
-    <div class="field">
-        <label for="idCategoria">Categoría</label>
-        <select id="idCategoria" name="idCategoria">
-            <option value="" selected disabled>Seleccione...</option>
-            <!-- Se llena dinámicamente desde /api/categorias (public/js/medicamentos.js) -->
-        </select>
-    </div>
-
-    <div class="field">
-        <label for="laboratorio">Laboratorio</label>
-        <input type="text" id="laboratorio" name="laboratorio" placeholder="Laboratorios Portugal">
-    </div>
-
-    <div class="field">
-        <label for="presentacion">Presentación</label>
-        <input type="text" id="presentacion" name="presentacion" placeholder="Caja x 100">
-    </div>
-
-    <div class="field">
-        <label for="concentracion">Concentración</label>
-        <input type="text" id="concentracion" name="concentracion" placeholder="500 mg">
-    </div>
-
-    <div class="field">
-        <label for="precioCompra">Precio compra (S/)</label>
-        <input type="number" id="precioCompra" name="precioCompra" step="0.01" min="0" placeholder="0.00">
-    </div>
-
-    <div class="field">
-        <label for="precioVenta">Precio venta (S/)</label>
-        <input type="number" id="precioVenta" name="precioVenta" step="0.01" min="0" placeholder="0.00">
-    </div>
-
-    <div class="field">
-        <label for="stock">Stock actual</label>
-        <input type="number" id="stock" name="stock" min="0" placeholder="0">
-    </div>
-
-    <div class="field">
-        <label for="stockMinimo">Stock mínimo</label>
-        <input type="number" id="stockMinimo" name="stockMinimo" min="0" placeholder="0">
-    </div>
-
-    <div class="field">
-        <label for="fechaVencimiento">Fecha de vencimiento</label>
-        <input type="date" id="fechaVencimiento" name="fechaVencimiento">
+    <div class="field field-wide">
+        <label for="descripcion">Descripción</label>
+        <input type="text" id="descripcion" name="descripcion" placeholder="Medicamentos usados para tratar infecciones bacterianas">
     </div>
 
     <div class="field">
@@ -281,7 +233,7 @@ Registra, edita y controla el inventario de medicamentos de tu farmacia.
 
 <div class="form-actions">
 
-    <button type="submit" form="formMedicamento" class="fbtn fbtn-green">
+    <button type="submit" form="formCategoria" class="fbtn fbtn-green">
         <i class="fa-solid fa-floppy-disk"></i> Guardar
     </button>
 
@@ -313,11 +265,11 @@ Registra, edita y controla el inventario de medicamentos de tu farmacia.
 
 <div class="table-box-header">
 
-    <h2>Listado de Medicamentos</h2>
+    <h2>Listado de Categorías</h2>
 
     <div class="search-bar">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="buscarMedicamento" placeholder="Buscar medicamento...">
+        <input type="text" id="buscarCategoria" placeholder="Buscar categoría...">
     </div>
 
 </div>
@@ -329,23 +281,16 @@ Registra, edita y controla el inventario de medicamentos de tu farmacia.
 
 <thead>
 <tr>
-    <th>Código</th>
     <th>Nombre</th>
-    <th>Categoría</th>
-    <th>Laboratorio</th>
-    <th>Presentación</th>
-    <th>Precio venta (S/)</th>
-    <th>Stock</th>
-    <th>Stock mínimo</th>
-    <th>Vencimiento</th>
+    <th>Descripción</th>
     <th>Estado</th>
     <th>Acciones</th>
 </tr>
 </thead>
 
-<tbody id="tablaMedicamentosBody">
+<tbody id="tablaCategoriasBody">
 
-<!-- Se llena dinámicamente desde /api/medicamentos (public/js/medicamentos.js) -->
+<!-- Se llena dinámicamente desde /api/categorias -->
 
 </tbody>
 
@@ -374,7 +319,7 @@ Registra, edita y controla el inventario de medicamentos de tu farmacia.
 
 <script src="/js/sidebar-nav.js"></script>
 <script src="/js/toast.js"></script>
-<script src="/js/medicamentos.js"></script>
+<script src="/js/categorias.js"></script>
 
 </body>
 

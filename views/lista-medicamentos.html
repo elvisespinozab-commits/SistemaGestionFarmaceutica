@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lista de Medicamentos · Sistema de Gestión Farmacéutica</title>
+
+<link rel="stylesheet" href="/css/dashboard.css">
+<link rel="stylesheet" href="/css/medicamentos.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<div class="layout">
+
+
+<!-- MENU LATERAL -->
+
+<aside class="sidebar">
+
+
+<div class="logo">
+
+<div class="logo-icon">+</div>
+
+<div>
+<h2>SGF</h2>
+<p>Sistema de Gestión<br>Farmacéutica</p>
+</div>
+
+</div>
+
+
+
+<ul>
+
+<li data-href="/dashboard">⌂ Inicio</li>
+
+
+<h4>MÓDULO PRINCIPAL</h4>
+
+
+<li data-href="/registrar-medicamento">
+    <i class="fa-solid fa-capsules"></i>
+    Medicamentos
+</li>
+
+
+<li class="sub" data-href="/registrar-medicamento">
+    Registrar medicamento
+</li>
+
+<li class="sub active" data-href="/lista-medicamentos">
+    Lista de medicamentos
+</li>
+
+<li class="sub" data-href="/categorias">
+    Categorías
+</li>
+
+
+
+<li>
+    <i class="fa-solid fa-box"></i>
+    Inventario
+</li>
+
+
+
+<li>
+    <i class="fa-solid fa-users"></i>
+    Usuarios
+</li>
+
+
+
+<li>
+    <i class="fa-solid fa-chart-column"></i>
+    Reportes
+</li>
+
+
+
+<h4>CONFIGURACIÓN</h4>
+
+
+<li>
+    <i class="fa-solid fa-gear"></i>
+    Configuración
+</li>
+
+
+</ul>
+
+
+<div class="logout" data-href="/">
+
+🚪 Cerrar sesión
+
+</div>
+
+
+</aside>
+
+
+
+
+
+<!-- CONTENIDO -->
+
+
+<section class="content">
+
+
+
+<header class="topbar">
+
+
+<div class="top-left">
+
+
+<i class="fa-solid fa-bars menu-icon"></i>
+
+
+<h3>Lista de Medicamentos</h3>
+
+
+</div>
+
+
+
+
+<div class="top-user">
+
+
+<div class="notification">
+
+<i class="fa-regular fa-bell"></i>
+
+<span>3</span>
+
+</div>
+
+
+
+
+<div class="avatar">
+
+<i class="fa-solid fa-user"></i>
+
+</div>
+
+
+
+<div class="user-text">
+
+
+<b>Elvis Yohan</b>
+
+<small>Administrador</small>
+
+
+</div>
+
+
+
+<i class="fa-solid fa-chevron-down arrow"></i>
+
+
+</div>
+
+
+
+</header>
+
+
+
+<!-- TÍTULO DE LA PÁGINA -->
+
+<div class="welcome">
+
+<div>
+
+<h1>Lista de Medicamentos</h1>
+
+<p>
+Consulta, edita o elimina los medicamentos registrados en el inventario.
+</p>
+
+</div>
+
+<button type="button" id="btnNuevoMedicamento" class="fbtn fbtn-blue">
+    <i class="fa-solid fa-plus"></i> Registrar medicamento
+</button>
+
+</div>
+
+
+
+<!-- LISTADO -->
+
+<div class="box table-box">
+
+<div class="table-box-header">
+
+    <h2>Listado de Medicamentos</h2>
+
+    <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="buscarMedicamento" placeholder="Buscar medicamento...">
+    </div>
+
+</div>
+
+
+<div class="table-scroll">
+
+<table class="med-table">
+
+<thead>
+<tr>
+    <th>Código</th>
+    <th>Nombre</th>
+    <th>Categoría</th>
+    <th>Laboratorio</th>
+    <th>Presentación</th>
+    <th>Precio venta (S/)</th>
+    <th>Stock</th>
+    <th>Stock mínimo</th>
+    <th>Vencimiento</th>
+    <th>Estado</th>
+    <th>Acciones</th>
+</tr>
+</thead>
+
+<tbody id="tablaMedicamentosBody">
+
+<!-- Se llena dinámicamente desde /api/medicamentos -->
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+
+<footer>
+
+© 2026 Sistema de Gestión Farmacéutica
+
+</footer>
+
+
+
+
+</section>
+
+
+</div>
+
+
+<script src="/js/sidebar-nav.js"></script>
+<script src="/js/toast.js"></script>
+<script src="/js/lista-medicamentos.js"></script>
+
+</body>
+
+</html>
