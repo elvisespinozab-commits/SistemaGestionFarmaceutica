@@ -275,9 +275,6 @@ form.addEventListener("submit", async (e) => {
 // Eliminar
 // ------------------------------------------------------------
 async function eliminarMedicamento(id) {
-    const confirmado = confirm("¿Seguro que deseas eliminar este medicamento? Esta acción no se puede deshacer.");
-    if (!confirmado) return;
-
     try {
         const resp = await fetch(`/api/medicamentos/${id}`, { method: "DELETE" });
         const json = await resp.json();
